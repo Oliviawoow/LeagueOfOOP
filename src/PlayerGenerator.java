@@ -1,7 +1,7 @@
 
 /*creaza un erou de un anumit tip*/
 public final class PlayerGenerator {
-    public static final PlayerGenerator object = new PlayerGenerator();
+    public static final PlayerGenerator instance = new PlayerGenerator();
     private PlayerGenerator() {
 
     }

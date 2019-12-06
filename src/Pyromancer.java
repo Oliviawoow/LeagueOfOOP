@@ -28,6 +28,7 @@ public class Pyromancer extends Player {
     public final int getLv() {
         return this.lv;
     }
+    public final boolean dea
     public final int getNPosition() {
         return this.NPosition;
     }

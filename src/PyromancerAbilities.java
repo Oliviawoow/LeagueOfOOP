@@ -46,12 +46,15 @@ public class PyromancerAbilities extends PlayerAbilities {
     public final float ignite(final Player Enemy, final Map map) {
         return dmg2 * mod2(Enemy);
 
+
+
+
     }
     public final int getDmgNotMod(final Player Enemy, final Map map) {
         return dmg1 + dmg2;
     }
     public final int getDmgMod(final Player Enemy, final Map map) {
-        return Math.round(fireblast(Enemy) + ignite(Enemy, map))
+        return Math.round(fireblast(Enemy) + ignite(Enemy, map));
     }
     public final float getTotalDmg(final Player Enemy, final Map map) {
         return fireblast(Enemy) + ignite(Enemy, map);

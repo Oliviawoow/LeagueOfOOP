@@ -25,7 +25,7 @@ public abstract class Player {
     public abstract int getXp();
     public abstract int getLv();
     public abstract int getLvUp();
-    public abstract boolean isDead();
+    public abstract boolean Dead();
 
     /*setteri pentru eroii derivati din clasa Player*/
     /*creste Xp dupa o lupta castigata*/

@@ -44,14 +44,13 @@ public class WizardAbilities extends PlayerAbilities {
     public final void dmgUp(int nrLv) {
         this.dmg1 = this.dmg1 + 50 * nrLv;
         this.dmg2 =this.dmg2 + 20 * nrLv;
-        this.dmgPerRound = this.dmgPerRound + 30 * nrLv;
 
     }
 
     public final float terrainModifier(final Map map, final int NPosition, final int MPosition) {
         char type = map.getType(NPosition, MPosition);
-        if (type == 'V') {
-            return 0.25f;
+        if (type == 'D') {
+            return 0.1f;
         }
         return 0f;
     }

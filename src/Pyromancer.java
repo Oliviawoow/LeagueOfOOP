@@ -1,12 +1,12 @@
 public class Pyromancer extends Player {
     protected String heroType;
-    protected int NPosition;
-    protected int MPosition;
+    //protected int NPosition;
+    //protected int MPosition;
     protected int startHp = 500;
-    protected int hp;
-    protected int xp;
-    protected int lv;
-    protected boolean Dead;
+    //protected int hp;
+    //protected int xp;
+    //protected int lv;
+    //protected boolean Dead;
 
     public Pyromancer(final int N, final int M) {
         super("P");
@@ -16,21 +16,6 @@ public class Pyromancer extends Player {
         this.Dead = false;
     }
 
-    public final int getStartHp() {
-        return this.startHp;
-    }
-    public final int getHp() {
-        return this.hp;
-    }
-    public final int getXp() {
-        return this.xp;
-    }
-    public final int getLv() {
-        return this.lv;
-    }
-    public final boolean getDead() {
-        return this.Dead;
-    }
     public final int getNPosition() {
         return this.NPosition;
     }

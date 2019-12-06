@@ -1,2 +1,2 @@
-public class RogueAbilities {
+public class RogueAbilities extends PlayerAbilities {
 }

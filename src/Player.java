@@ -18,14 +18,28 @@ public abstract class Player {
     }
 
     /*getteri pentru eroii derivati din clasa Player*/
-    public abstract int getNPosition();
-    public abstract int getMPosition();
-    public abstract int getStartHp();
-    public abstract int getHp();
-    public abstract int getXp();
-    public abstract int getLv();
+    public final int getNPosition() {
+        return this.NPosition;
+    }
+    public final int getMPosition() {
+        return this.MPosition;
+    }
+    public final int getStartHp() {
+        return this.startHp;
+    }
+    public final int getHp() {
+        return this.hp;
+    }
+    public final int getXp() {
+        return this.xp;
+    }
+    public final int getLv() {
+        return this.lv;
+    }
     public abstract int getLvUp();
-    public abstract boolean getDead();
+    public final boolean getDead() {
+        return this.Dead;
+    }
 
     /*setteri pentru eroii derivati din clasa Player*/
     /*creste Xp dupa o lupta castigata*/

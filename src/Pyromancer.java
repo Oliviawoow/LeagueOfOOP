@@ -86,9 +86,8 @@ public class Pyromancer extends Player {
             this.startHp = this.startHp + 50 * this.getLvUp();
             this.hp = this.startHp;
             this.lv = this.lv + this.getLvUp();
-
+            PyromancerAbilities.instance.dmgUp(this.getLvUp());
         }
-
     }
 
     public final void setDead() {

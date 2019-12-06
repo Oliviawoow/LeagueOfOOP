@@ -19,33 +19,41 @@ public class Pyromancer extends Player {
 
     public void isAttackedBy(Pyromancer attacker) {
         int damageFireblast = Math.round(this.getAbilities().ability1(this)
-                * attacker.getAbilities().terrainModifier(attacker.getMap(), attacker.getNPosition(), attacker.getMPosition()));
+                * attacker.getAbilities().terrainModifier(attacker.getMap(),
+                attacker.getNPosition(), attacker.getMPosition()));
         int damageIgnite = Math.round(this.getAbilities().ability2(this)
-                * attacker.getAbilities().terrainModifier(attacker.getMap(), attacker.getNPosition(), attacker.getMPosition()));
+                * attacker.getAbilities().terrainModifier(attacker.getMap(),
+                attacker.getNPosition(), attacker.getMPosition()));
         int totalDmg = damageFireblast + damageIgnite;
     }
 
     public void isAttackedBy(Knight attacker) {
-        int damageExecute = Math.round(this.getAbilities().ability1(this)
-                * attacker.terrainModifier(this.map));
-        int damageSlam = Math.round(this.getAbilities().ability2(this)
-                * attacker.terrainModifier(this.map));
+        int damageExecute =Math.round(this.getAbilities().ability1(this)
+                * attacker.getAbilities().terrainModifier(attacker.getMap(),
+                attacker.getNPosition(), attacker.getMPosition()));
+        int damageSlam =Math.round(this.getAbilities().ability2(this)
+                * attacker.getAbilities().terrainModifier(attacker.getMap(),
+                attacker.getNPosition(), attacker.getMPosition()));
         int totalDmg = damageExecute + damageSlam;
     }
 
     public void isAttackedBy(Rogue attacker) {
-        int damageBackstab = Math.round(this.getAbilities().ability1(this)
-                * attacker.terrainModifier(this.map));
-        int damageParalysis = Math.round(this.getAbilities().ability2(this)
-                * attacker.terrainModifier(this.map));
+        int damageBackstab =Math.round(this.getAbilities().ability1(this)
+                * attacker.getAbilities().terrainModifier(attacker.getMap(),
+                attacker.getNPosition(), attacker.getMPosition()));
+        int damageParalysis =Math.round(this.getAbilities().ability2(this)
+                * attacker.getAbilities().terrainModifier(attacker.getMap(),
+                attacker.getNPosition(), attacker.getMPosition()));
         int totalDmg = damageBackstab + damageParalysis;
     }
 
     public void isAttackedBy(Wizard attacker) {
         int damageDrain = Math.round(this.getAbilities().ability1(this)
-                * attacker.terrainModifier(this.map));
-        int damageDeflect = Math.round(this.getAbilities().ability2(this)
-                * attacker.terrainModifier(this.map));
+                * attacker.getAbilities().terrainModifier(attacker.getMap(),
+                attacker.getNPosition(), attacker.getMPosition()));
+        int damageDeflect =Math.round(this.getAbilities().ability2(this)
+                * attacker.getAbilities().terrainModifier(attacker.getMap(),
+                attacker.getNPosition(), attacker.getMPosition()));
         int totalDmg = damageDeflect + damageDrain;
     }
 
@@ -56,8 +64,8 @@ public class Pyromancer extends Player {
     public final void lvUp() {
         if (this.getLvUp() > 0) {
             this.startHp = this.startHp + 50 * this.getLvUp();
-            this.hp = this.startHp;
-            this.lv = this.lv + this.getLvUp();
+            this.setHp(this.startHp);
+            this.setLv(this.getLv() + this.getLvUp());
             this.getAbilities().dmgUp(this.getLvUp());
         }
     }

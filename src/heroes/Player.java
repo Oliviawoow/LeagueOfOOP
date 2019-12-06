@@ -64,6 +64,18 @@ public abstract class Player {
         return heroType;
     }
 
+    public void setHp(int hp) {
+        this.hp = hp;
+    }
+
+    public void setLv(int lv) {
+        this.lv = lv;
+    }
+
+    public void setXp(int xp) {
+        this.xp = xp;
+    }
+
     public abstract void isAttackedBy(Pyromancer attacker);
     public abstract void isAttackedBy(Knight attacker);
     public abstract void isAttackedBy(Rogue attacker);

@@ -5,8 +5,8 @@ public abstract class PlayerAbilities {
 
     }
     /*modificator pentru prima si a 2a abilitate in functie de eroul inamic*/
-    public abstract int mod1(Player Enemy);
-    public abstract int mod2(Player Enemy);
+    public abstract float mod1(Player Enemy);
+    public abstract float mod2(Player Enemy);
     /*creste damage-ul in functie de level*/
     public abstract void dmgUp(int lv);
     /*damage dat fara si cu modificator*/

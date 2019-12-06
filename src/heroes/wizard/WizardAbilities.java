@@ -42,8 +42,8 @@ public class WizardAbilities extends PlayerAbilities {
     }
 
     public final void dmgUp(int nrLv) {
-        this.dmg1 = this.dmg1 + 50 * nrLv;
-        this.dmg2 =this.dmg2 + 20 * nrLv;
+        this.dmg1 = this.dmg1 + 0.05f * nrLv;
+        this.dmg2 =this.dmg2 + 0.02f * nrLv;
 
     }
 

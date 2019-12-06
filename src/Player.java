@@ -4,8 +4,8 @@ public abstract class Player {
     protected String heroType;
     protected int NPosition;
     protected int MPosition;
-    protected int startHP;
-    protected int HP;
+    protected int startHp;
+    protected int hp;
     protected int xp;
     protected int lv;
     protected boolean Dead;
@@ -20,7 +20,7 @@ public abstract class Player {
     /*getteri pentru eroii derivati din clasa Player*/
     public abstract int getNPosition();
     public abstract int getMPosition();
-    public abstract int getStartHP();
+    public abstract int getStartHp();
     public abstract int getHp();
     public abstract int getXp();
     public abstract int getLv();

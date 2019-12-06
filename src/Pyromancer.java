@@ -82,6 +82,12 @@ public class Pyromancer extends Player {
     }
 
     public final void lvUp() {
+        if (this.getLvUp() > 0) {
+            this.startHp = this.startHp + 50 * this.getLvUp();
+            this.hp = this.startHp;
+            this.lv = this.lv + this.getLvUp();
+
+        }
 
     }
 
@@ -95,6 +101,6 @@ public class Pyromancer extends Player {
     }
 
     public final void takeDmg(int dmg) {
-
+        this.hp = this.hp - dmg;
     }
 }

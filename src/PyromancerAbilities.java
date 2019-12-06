@@ -35,6 +35,9 @@ public class PyromancerAbilities extends PlayerAbilities {
         return mod2;
     }
     public final void dmgUp(int nrLv) {
+        this.dmg1 = this.dmg1 + 50 * nrLv;
+        this.dmg2 =this.dmg2 + 20 * nrLv;
+        this.dmgPerRound = this.dmgPerRound + 30 * nrLv;
 
     }
     public final int getDmgNotMod(Player Enemy, Map map) {

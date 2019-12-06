@@ -16,4 +16,26 @@ public class Pyromancer extends Player {
         this.Dead = false;
     }
 
+    public final void direction(final char dir) {
+        boolean ok = true;
+        if (dir == 'U' && ok) {
+            this.NPosition = this.NPosition --;
+            ok = false;
+        }
+        if (dir == 'D' && ok) {
+            this.NPosition = this.NPosition ++;
+            ok = false;
+        }
+        if (dir == 'L' && ok) {
+            this.MPosition = this.MPosition --;
+            ok = false;
+        }
+        if (dir == 'R' && ok) {
+            this.MPosition = this.MPosition ++;
+            ok = false;
+        }
+        if (dir == '_' && ok) {
+            ok = false;
+        }
+    }
 }

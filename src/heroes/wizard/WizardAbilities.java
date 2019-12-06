@@ -59,26 +59,26 @@ public class WizardAbilities extends PlayerAbilities {
         return dmg1 * this.getFirstAbilityClassModifier(enemy);
     }
     public final float ability1(final Knight enemy) {
-        return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
+        return dmg1 * this.getFirstAbilityClassModifier(enemy);
     }
     public final float ability1(final Rogue enemy) {
-        return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
+        return dmg1 * this.getFirstAbilityClassModifier(enemy);
     }
     public final float ability1(final Wizard enemy) {
-        return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
+        return dmg1 * this.getFirstAbilityClassModifier(enemy);
     }
 
     public final float ability2(final Pyromancer enemy) {
         return dmg2 * this.getSecondAbilityClassModifier(enemy);
     }
     public final float ability2(final Knight enemy) {
-        return Math.round(dmg2 * this.getSecondAbilityClassModifier(enemy));
+        return dmg2 * this.getSecondAbilityClassModifier(enemy);
     }
     public final float ability2(final Rogue enemy) {
-        return Math.round(dmg2 * this.getSecondAbilityClassModifier(enemy));
+        return dmg2 * this.getSecondAbilityClassModifier(enemy);
     }
     public final float ability2(final Wizard enemy) {
-        return Math.round(dmg2 * this.getSecondAbilityClassModifier(enemy));
+        return dmg2 * this.getSecondAbilityClassModifier(enemy);
     }
 
    /* public final int getDmgMod(final Player Enemy, final Map map) {

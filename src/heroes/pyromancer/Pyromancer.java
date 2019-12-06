@@ -54,10 +54,11 @@ public class Pyromancer extends Player {
     }
 
     public void isAttackedBy(Wizard attacker) {
-        int damageDrain = Math.round(attacker.getAbilities().ability1(this)
+        float damageDrain = attacker.getAbilities().ability1(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
-                attacker.getNPosition(), attacker.getMPosition()));
-        int damageDeflect =Math.round(attacker.getAbilities().ability2(this)
+                attacker.getNPosition(), attacker.getMPosition());
+        damageDrain = damageDrain * Math.min(0.3f * this.startHp, this.getHp());
+        float damageDeflect =Math.round(attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
         int totalDmg = damageDeflect + damageDrain;

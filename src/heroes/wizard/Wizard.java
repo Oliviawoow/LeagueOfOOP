@@ -18,10 +18,10 @@ public class Wizard extends Player {
     }
 
     public void isAttackedBy(Pyromancer attacker) {
-        int damageFireblast = Math.round(this.getAbilities().ability1(this)
+        int damageFireblast = Math.round(attacker.getAbilities().ability1(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
-        int damageIgnite = Math.round(this.getAbilities().ability2(this)
+        int damageIgnite = Math.round(attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
         int totalDmg = damageFireblast + damageIgnite;
@@ -29,10 +29,10 @@ public class Wizard extends Player {
     }
 
     public void isAttackedBy(Knight attacker) {
-        int damageExecute =Math.round(this.getAbilities().ability1(this)
+        int damageExecute =Math.round(attacker.getAbilities().ability1(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
-        int damageSlam =Math.round(this.getAbilities().ability2(this)
+        int damageSlam =Math.round(attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
         int totalDmg = damageExecute + damageSlam;
@@ -44,20 +44,20 @@ public class Wizard extends Player {
     }
 
     public void isAttackedBy(Rogue attacker) {
-        int damageBackstab =Math.round(this.getAbilities().ability1(this)
+        int damageBackstab =Math.round(attacker.getAbilities().ability1(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
-        int damageParalysis =Math.round(this.getAbilities().ability2(this)
+        int damageParalysis =Math.round(attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
         int totalDmg = damageBackstab + damageParalysis;
     }
 
     public void isAttackedBy(Wizard attacker) {
-        int damageDrain = Math.round(this.getAbilities().ability1(this)
+        int damageDrain = Math.round(attacker.getAbilities().ability1(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
-        int damageDeflect =Math.round(this.getAbilities().ability2(this)
+        int damageDeflect =Math.round(attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
         int totalDmg = damageDeflect + damageDrain;

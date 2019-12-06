@@ -37,6 +37,12 @@ public abstract class Player {
     public abstract void setDead();
     /*scade viata curenta in functie de damage-ul primit*/
     public abstract void takeDmg(int dmg);
-
+    /*pentru efectele pe mai multe runde, salvam rundele, damage-ul primit si
+    vedem daca are stun sau nu*/
+    public abstract boolean roundEffect();
+    /*calculeaza damage-ul si ii scade eroului din viata*/
+    public abstract void dmgTake(Player Enemy, Map map);
+    /*damage nemodificat*/
+    public abstract int dmgNoModTake(Player Enemy, Map map);
 
 }

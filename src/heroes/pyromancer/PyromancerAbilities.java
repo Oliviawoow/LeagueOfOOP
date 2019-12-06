@@ -11,6 +11,7 @@ public class PyromancerAbilities extends PlayerAbilities {
     private int dmg1 = 350;
     private int dmg2 = 150;
     private int dmgPerRound = 50;
+    private int affectedRounds = 0;
 
     public PyromancerAbilities() {
         super();
@@ -83,16 +84,20 @@ public class PyromancerAbilities extends PlayerAbilities {
         return Math.round(dmg2 * this.getSecondAbilityClassModifier(enemy));
     }
 
-    public final int getDmg1() {
+    public final float getDmg1() {
         return dmg1;
     }
 
-    public final int getDmg2() {
+    public final float getDmg2() {
         return dmg2;
     }
 
     public final int getDmgPerRound() {
         return dmgPerRound;
+    }
+
+    public final int affectedRounds() {
+        return affectedRounds;
     }
 
     /* public final int getDmgMod(final Player Enemy, final Map map) {

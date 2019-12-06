@@ -8,6 +8,7 @@ import heroes.rogue.Rogue;
 import heroes.rogue.RogueAbilities;
 import heroes.wizard.Wizard;
 import heroes.wizard.WizardAbilities;
+import heroes.pyromancer.PyromancerAbilities;
 import main.Map;
 
 public class Pyromancer extends Player {
@@ -83,7 +84,7 @@ public class Pyromancer extends Player {
     }
 
     public final int dmgNoModifier() {
-        this.getAbilities().
+        this.getAbilities().getDmg1()
     }
 
 }

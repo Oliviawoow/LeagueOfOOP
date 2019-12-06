@@ -37,4 +37,10 @@ public abstract class PlayerAbilities {
     
     /*creste damage-ul in functie de level*/
     public abstract void dmgUp(int nrLv);
+
+    public abstract float getDmg1();
+    public abstract float getDmg2();
+    public abstract int getDmgPerRound();
+    public abstract int affectedRounds();
+
 }

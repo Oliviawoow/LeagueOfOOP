@@ -80,6 +80,22 @@ public class RogueAbilities extends PlayerAbilities {
         return Math.round(dmg2 * this.getSecondAbilityClassModifier(enemy));
     }
 
+    public final float getDmg1() {
+        return dmg1;
+    }
+
+    public final float getDmg2() {
+        return dmg2;
+    }
+
+    public final int getDmgPerRound() {
+        return 0;
+    }
+
+    public final int affectedRounds() {
+        return 0;
+    }
+
    /* public final int getDmgMod(final Player Enemy, final Map map) {
         return Math.round(fireblast(Enemy) + ignite(Enemy, map));
     }

@@ -66,6 +66,8 @@ public class PyromancerAbilities extends PlayerAbilities {
         this.dmgPerRound = this.dmgPerRound + 30 * nrLv;
 
     }
+
+
     public final float fireblast(final Player Enemy) {
         return Math.round(dmg1 * mod1(Enemy));
     }

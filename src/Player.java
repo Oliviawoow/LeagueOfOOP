@@ -44,6 +44,11 @@ public abstract class Player {
     }
     public abstract float terrainModifier(Map map);
 
+    public abstract void isAttackedBy(Pyromancer attacker);
+    public abstract void isAttackedBy(Knight attacker);
+    public abstract void isAttackedBy(Rogue attacker);
+    public abstract void isAttackedBy(Wizard attacker);
+
     /*setteri pentru eroii derivati din clasa Player*/
     /*creste Xp dupa o lupta castigata*/
     public final void setXpUp(Player Enemy) {

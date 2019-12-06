@@ -7,7 +7,25 @@ public class Pyromancer extends Player {
         this.MPosition = M;
     }
 
+    public void isAttackedBy(Pyromancer attacker) {
 
+    }
+
+    public void isAttackedBy(Knight attacker) {
+
+    }
+
+    public void isAttackedBy(Rogue attacker) {
+
+    }
+
+    public void isAttackedBy(Wizard attacker) {
+
+    }
+
+    public void attackPlayer(Player enemy) {
+        enemy.isAttackedBy(this);
+    }
 
     public final float terrainModifier(final Map map) {
         char type = map.getType(this.NPosition, this.MPosition);
@@ -27,7 +45,7 @@ public class Pyromancer extends Player {
     }
 
     public final boolean roundEffect() {
-
+        return false;
     }
 
     public final void dmgTake(final Player Enemy, final Map map) {

@@ -99,4 +99,21 @@ public class Knight extends Player {
         }
     }
 
+    public final void takeDmg(int dmg) {
+        this.hp = this.hp - dmg;
+    }
+
+    public final boolean roundEffect() {
+
+    }
+
+    public final void dmgTake(final Player Enemy, final Map map) {
+        Enemy.takeDmg(Math.round(KnightAbilities.instance.getTotalDmg(Enemy, map)
+                * this.mod(map)));
+    }
+
+    public final int dmgNotModTake(final Player Enemy, final Map map) {
+        return Math.round(KnightAbilities.instance.getDmgNotMod(Enemy, map)
+                * this.mod(map));
+    }
 }

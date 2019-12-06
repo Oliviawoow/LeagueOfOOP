@@ -14,7 +14,7 @@ public class Wizard extends Player {
     protected int startHp = 400;
 
     public Wizard(final int N, final int M, final Map map) {
-        super("W", map, new PyromancerAbilities(), N, M);
+        super("W", map, new WizardAbilities(), N, M);
     }
 
     public void isAttackedBy(Pyromancer attacker) {

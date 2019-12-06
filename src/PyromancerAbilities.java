@@ -34,7 +34,7 @@ public class PyromancerAbilities extends PlayerAbilities {
         return -0.2f;
     }
     
-    public final float mod1(final Player Enemy) {
+   /* public final float mod1(final Player Enemy) {
         float mod1 = 0f;
         if (Enemy.heroType.equals("R")) {
             mod1 = -0.2f;
@@ -59,7 +59,7 @@ public class PyromancerAbilities extends PlayerAbilities {
             mod2 = 0.05f;
         }
         return mod2;
-    }
+    }*/
     public final void dmgUp(int nrLv) {
         this.dmg1 = this.dmg1 + 50 * nrLv;
         this.dmg2 =this.dmg2 + 20 * nrLv;

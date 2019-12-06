@@ -7,6 +7,8 @@ public class Pyromancer extends Player {
         this.MPosition = M;
     }
 
+
+
     public final float terrainModifier(final Map map) {
         char type = map.getType(this.NPosition, this.MPosition);
         if (type == 'V') {

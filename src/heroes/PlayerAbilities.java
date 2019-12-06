@@ -1,5 +1,11 @@
 package heroes;
 
+import heroes.knight.Knight;
+import heroes.pyromancer.Pyromancer;
+import heroes.rogue.Rogue;
+import heroes.wizard.Wizard;
+import main.Map;
+
 /*definire metode pentru abilitatile eroilor*/
 public abstract class PlayerAbilities {
     public PlayerAbilities() {
@@ -16,15 +22,15 @@ public abstract class PlayerAbilities {
     public abstract float getSecondAbilityClassModifier (final Pyromancer enemy);
     public abstract float getSecondAbilityClassModifier (final Wizard enemy);
 
-    public abstract float fireblast(final Pyromancer enemy);
-    public abstract float fireblast(final Knight enemy);
-    public abstract float fireblast(final Rogue enemy);
-    public abstract float fireblast(final Wizard enemy);
+    public abstract float ability1(final Pyromancer enemy);
+    public abstract float ability1(final Knight enemy);
+    public abstract float ability1(final Rogue enemy);
+    public abstract float ability1(final Wizard enemy);
 
-    public abstract float ignite(final Pyromancer enemy);
-    public abstract float ignite(final Knight enemy);
-    public abstract float ignite(final Rogue enemy);
-    public abstract float ignite(final Wizard enemy);
+    public abstract float ability2(final Pyromancer enemy);
+    public abstract float ability2(final Knight enemy);
+    public abstract float ability2(final Rogue enemy);
+    public abstract float ability2(final Wizard enemy);
     
     /*creste damage-ul in functie de level*/
     public abstract void dmgUp(int nrLv);

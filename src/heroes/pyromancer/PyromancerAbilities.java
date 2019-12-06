@@ -11,7 +11,6 @@ public class PyromancerAbilities extends PlayerAbilities {
     private int dmg1 = 350;
     private int dmg2 = 150;
     private int dmgPerRound = 50;
-    private static final PyromancerAbilities instance = new PyromancerAbilities();
 
     public PyromancerAbilities() {
         super();
@@ -50,29 +49,29 @@ public class PyromancerAbilities extends PlayerAbilities {
 
     }
 
-    public final float fireblast(final Pyromancer enemy) {
+    public final float ability1(final Pyromancer enemy) {
         return dmg1 * this.getFirstAbilityClassModifier(enemy);
     }
-    public final float fireblast(final Knight enemy) {
+    public final float ability1(final Knight enemy) {
         return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
     }
-    public final float fireblast(final Rogue enemy) {
+    public final float ability1(final Rogue enemy) {
         return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
     }
-    public final float fireblast(final Wizard enemy) {
+    public final float ability1(final Wizard enemy) {
         return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
     }
 
-    public final float ignite(final Pyromancer enemy) {
+    public final float ability2(final Pyromancer enemy) {
         return dmg2 * this.getSecondAbilityClassModifier(enemy);
     }
-    public final float ignite(final Knight enemy) {
+    public final float ability2(final Knight enemy) {
         return Math.round(dmg2 * this.getSecondAbilityClassModifier(enemy));
     }
-    public final float ignite(final Rogue enemy) {
+    public final float ability2(final Rogue enemy) {
         return Math.round(dmg2 * this.getSecondAbilityClassModifier(enemy));
     }
-    public final float ignite(final Wizard enemy) {
+    public final float ability2(final Wizard enemy) {
         return Math.round(dmg2 * this.getSecondAbilityClassModifier(enemy));
     }
 
@@ -83,7 +82,4 @@ public class PyromancerAbilities extends PlayerAbilities {
         return fireblast(Enemy) + ignite(Enemy, map);
     }
 
-    public static PyromancerAbilities getInstance() {
-        return instance;
-    }
 }

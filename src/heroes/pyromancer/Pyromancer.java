@@ -1,6 +1,7 @@
 package heroes.pyromancer;
 
 import heroes.Player;
+import heroes.PlayerAbilities;
 import heroes.knight.Knight;
 import heroes.knight.KnightAbilities;
 import heroes.rogue.Rogue;
@@ -13,13 +14,13 @@ public class Pyromancer extends Player {
     protected int startHp = 500;
 
     public Pyromancer(final int N, final int M, final Map map) {
-        super("P", map);
+        super("P", map, new PyromancerAbilities());
         this.NPosition = N;
         this.MPosition = M;
     }
 
     public void isAttackedBy(Pyromancer attacker) {
-        int damageFireblast = Math.round(PyromancerAbilities.getInstance().fireblast(this)
+        int damageFireblast = Math.round(this.getAbilities().ability1(this)
                 * attacker.terrainModifier(this.map));
         int damageIgnite = Math.round(PyromancerAbilities.getInstance().ignite(this)
                 * attacker.terrainModifier(this.map));

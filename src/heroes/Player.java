@@ -1,5 +1,7 @@
 package heroes;
 
+import main.Map;
+
 /*clasa heroes.Player contine metodele necesare pentru functionarea tuturor eroilor*/
 public abstract class Player {
     protected String heroType;
@@ -10,10 +12,12 @@ public abstract class Player {
     protected int xp;
     protected int lv;
     protected Map map;
+    private PlayerAbilities abilities;
 
-    public Player(final String heroType, final Map map) {
+    public Player(final String heroType, final Map map, final PlayerAbilities abilities) {
         this.heroType = heroType;
         this.map = map;
+        this.abilities = abilities;
     }
 
     /*getteri pentru eroii derivati din clasa heroes.Player*/
@@ -52,6 +56,9 @@ public abstract class Player {
     public abstract void isAttackedBy(Rogue attacker);
     public abstract void isAttackedBy(Wizard attacker);
 
+    public final PlayerAbilities getAbilities() {
+        return this.abilities;
+    }
     /*setteri pentru eroii derivati din clasa heroes.Player*/
     /*creste Xp dupa o lupta castigata*/
     public final void setXpUp(Player Enemy) {

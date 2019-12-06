@@ -11,6 +11,6 @@ public abstract class PlayerAbilities {
     public abstract void dmgUp(int lv);
     /*damage dat fara si cu modificator*/
     public abstract int getDmgNotMod(Player Enemy, Map map);
-    public abstract int getDmgMod (Player Enemy, Map map);
-    public abstract float getTotalDmg (Player Enemy, Map map);
+    public abstract int getDmgMod(Player Enemy, Map map);
+    public abstract float getTotalDmg(Player Enemy, Map map);
 }

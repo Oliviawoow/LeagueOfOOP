@@ -13,7 +13,7 @@ import main.Map;
 public class Knight extends Player {
     protected int startHp = 900;
 
-    public Pyromancer(final int N, final int M, final Map map) {
+    public Knight(final int N, final int M, final Map map) {
         super("K", map, new KnightAbilities(), N, M);
     }
 

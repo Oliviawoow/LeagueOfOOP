@@ -57,6 +57,19 @@ public class KnightAbilities extends PlayerAbilities {
         }
     }
     public final float slam(final Player Enemy) {
-        return dmg2 * mod2(Enemy);
+        return Math.round(dmg2 * mod2(Enemy));
+        //set stun
+
+
+    }
+
+    public final int getDmgNotMod(final Player Enemy, final Map map) {
+        return dmg1 + dmg2;
+    }
+    public final int getDmgMod(final Player Enemy, final Map map) {
+        return Math.round(execute(Enemy) + slam(Enemy));
+    }
+    public final float getTotalDmg(final Player Enemy, final Map map) {
+        return execute(Enemy) + slam(Enemy);
     }
 }

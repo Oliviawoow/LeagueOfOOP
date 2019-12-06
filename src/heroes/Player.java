@@ -1,20 +1,26 @@
 package heroes;
 
+import heroes.knight.Knight;
+import heroes.pyromancer.Pyromancer;
+import heroes.rogue.Rogue;
+import heroes.wizard.Wizard;
 import main.Map;
 
 /*clasa heroes.Player contine metodele necesare pentru functionarea tuturor eroilor*/
 public abstract class Player {
-    protected String heroType;
-    protected int NPosition;
-    protected int MPosition;
-    protected int startHp;
-    protected int hp;
-    protected int xp;
-    protected int lv;
-    protected Map map;
+    private String heroType;
+    private int NPosition;
+    private int MPosition;
+    private int startHp;
+    private int hp;
+    private int xp;
+    private int lv;
+    private Map map;
     private PlayerAbilities abilities;
 
-    public Player(final String heroType, final Map map, final PlayerAbilities abilities) {
+    public Player(final String heroType, final Map map, final PlayerAbilities abilities, final int NPosition, final int MPosition) {
+        this.MPosition = MPosition;
+        this.NPosition = NPosition;
         this.heroType = heroType;
         this.map = map;
         this.abilities = abilities;
@@ -49,7 +55,14 @@ public abstract class Player {
     public final boolean isDead() {
         return (this.hp <= 0);
     }
-    public abstract float terrainModifier(Map map);
+
+    public Map getMap() {
+        return map;
+    }
+
+    public String getHeroType() {
+        return heroType;
+    }
 
     public abstract void isAttackedBy(Pyromancer attacker);
     public abstract void isAttackedBy(Knight attacker);

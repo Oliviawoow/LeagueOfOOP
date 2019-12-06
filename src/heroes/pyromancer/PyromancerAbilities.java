@@ -49,6 +49,14 @@ public class PyromancerAbilities extends PlayerAbilities {
 
     }
 
+    public final float terrainModifier(final Map map, final int NPosition, final int MPosition) {
+        char type = map.getType(NPosition, MPosition);
+        if (type == 'V') {
+            return 0.25f;
+        }
+        return 0f;
+    }
+
     public final float ability1(final Pyromancer enemy) {
         return dmg1 * this.getFirstAbilityClassModifier(enemy);
     }

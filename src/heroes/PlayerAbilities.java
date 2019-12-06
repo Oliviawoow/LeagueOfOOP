@@ -22,7 +22,10 @@ public abstract class PlayerAbilities {
     public abstract float getSecondAbilityClassModifier (final Pyromancer enemy);
     public abstract float getSecondAbilityClassModifier (final Wizard enemy);
 
-    public abstract float ability1(final Pyromancer enemy);
+    public abstract float terrainModifier(final Map map, final int NPosition, final int MPosition);
+
+
+        public abstract float ability1(final Pyromancer enemy);
     public abstract float ability1(final Knight enemy);
     public abstract float ability1(final Rogue enemy);
     public abstract float ability1(final Wizard enemy);
@@ -35,7 +38,6 @@ public abstract class PlayerAbilities {
     /*creste damage-ul in functie de level*/
     public abstract void dmgUp(int nrLv);
     /*damage dat fara si cu modificator*/
-    public abstract int getDmgNotMod(Player Enemy, Map map);
     public abstract int getDmgMod(Player Enemy, Map map);
     public abstract float getTotalDmg(Player Enemy, Map map);
 }

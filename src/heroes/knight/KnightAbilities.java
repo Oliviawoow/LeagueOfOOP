@@ -2,79 +2,90 @@ package heroes.knight;
 
 import heroes.Player;
 import heroes.PlayerAbilities;
+import heroes.pyromancer.Pyromancer;
+import heroes.wizard.Wizard;
+import heroes.rogue.Rogue;
+import main.Map;
 
 public class KnightAbilities extends PlayerAbilities {
-    protected int dmg1 = 200;
-    protected int dmg2 = 100;
-    protected float modLv = 0f;
-    public static final PyromancerAbilities instance = new PyromancerAbilities();
+    private int dmg1 = 200;
+    private int dmg2 = 100;
 
     public KnightAbilities() {
         super();
     }
 
-    public final float mod1(final Player Enemy) {
-        float mod1 = 0f;
-        if (Enemy.heroType.equals("R")) {
-            mod1 = 0.15f;
-        } else if (Enemy.heroType.equals("K")) {
-            mod1 = 0f;
-        } else if (Enemy.heroType.equals("P")) {
-            mod1 = 0.1f;
-        } else if (Enemy.heroType.equals("W")) {
-            mod1 = -0.2f;
-        }
-        return mod1;
+    public final float getFirstAbilityClassModifier (final Pyromancer enemy) {
+        return 0.1f;
     }
-    public final float mod2(final Player Enemy) {
-        float mod2 = 0f;
-        if (Enemy.heroType.equals("R")) {
-            mod2 = -0.2f;
-        } else if (Enemy.heroType.equals("K")) {
-            mod2 = 0.2f;
-        } else if (Enemy.heroType.equals("P")) {
-            mod2 = -0.1f;
-        } else if (Enemy.heroType.equals("W")) {
-            mod2 = 0.05f;
-        }
-        return mod2;
+    public final float getFirstAbilityClassModifier (final Knight enemy) {
+        return 0f;
+    }
+    public final float getFirstAbilityClassModifier (final Wizard enemy) {
+        return -0.2f;
+    }
+    public final float getFirstAbilityClassModifier (final Rogue enemy) {
+        return 0.15f;
+    }
+
+    public final float getSecondAbilityClassModifier (final Pyromancer enemy) {
+        return -0.1f;
+    }
+    public final float getSecondAbilityClassModifier (final Knight enemy) {
+        return 0.2f;
+    }
+    public final float getSecondAbilityClassModifier (final Wizard enemy) {
+        return 0.05f;
+    }
+    public final float getSecondAbilityClassModifier (final Rogue enemy) {
+        return -0.2f;
     }
 
     public final void dmgUp(int nrLv) {
         this.dmg1 = this.dmg1 + 30 * nrLv;
         this.dmg2 =this.dmg2 + 40 * nrLv;
 
-
-
-
     }
 
-    public final float execute(final Player Enemy) {
-        if (modLv > 0.4f) {
-            modLv = 0.4f;
-        } else {
-            modLv = 0.01f * Enemy.getLvUp();
+    public final float terrainModifier(final Map map, final int NPosition, final int MPosition) {
+        char type = map.getType(NPosition, MPosition);
+        if (type == 'L') {
+            return 0.15f;
         }
-        if (Math.round(Enemy.getStartHp() * (0.2f + modLv)) < Enemy.getHp()) {
-            return Math.round(dmg1 * mod1(Enemy));
-        } else {
-            return (Enemy.getHp() - Enemy.getHp());
-        }
-    }
-    public final float slam(final Player Enemy) {
-        return Math.round(dmg2 * mod2(Enemy));
-        //set stun
-
-
+        return 0f;
     }
 
-    public final int getDmgNotMod(final Player Enemy, final Map map) {
-        return dmg1 + dmg2;
+    public final float ability1(final Pyromancer enemy) {
+        return dmg1 * this.getFirstAbilityClassModifier(enemy);
     }
-    public final int getDmgMod(final Player Enemy, final Map map) {
-        return Math.round(execute(Enemy) + slam(Enemy));
+    public final float ability1(final Knight enemy) {
+        return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
+    }
+    public final float ability1(final Rogue enemy) {
+        return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
+    }
+    public final float ability1(final Wizard enemy) {
+        return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
+    }
+
+    public final float ability2(final Pyromancer enemy) {
+        return dmg2 * this.getSecondAbilityClassModifier(enemy);
+    }
+    public final float ability2(final Knight enemy) {
+        return Math.round(dmg2 * this.getSecondAbilityClassModifier(enemy));
+    }
+    public final float ability2(final Rogue enemy) {
+        return Math.round(dmg2 * this.getSecondAbilityClassModifier(enemy));
+    }
+    public final float ability2(final Wizard enemy) {
+        return Math.round(dmg2 * this.getSecondAbilityClassModifier(enemy));
+    }
+
+   /* public final int getDmgMod(final Player Enemy, final Map map) {
+        return Math.round(fireblast(Enemy) + ignite(Enemy, map));
     }
     public final float getTotalDmg(final Player Enemy, final Map map) {
-        return execute(Enemy) + slam(Enemy);
-    }
+        return fireblast(Enemy) + ignite(Enemy, map);
+    }*/
+
 }

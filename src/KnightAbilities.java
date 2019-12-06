@@ -1,6 +1,7 @@
 public class KnightAbilities extends PlayerAbilities {
     protected int dmg1 = 200;
     protected int dmg2 = 100;
+    protected float modLv = 0f;
     public static final PyromancerAbilities instance = new PyromancerAbilities();
 
     public KnightAbilities() {
@@ -37,6 +38,25 @@ public class KnightAbilities extends PlayerAbilities {
     public final void dmgUp(int nrLv) {
         this.dmg1 = this.dmg1 + 30 * nrLv;
         this.dmg2 =this.dmg2 + 40 * nrLv;
+
+
+
+
+    }
+
+    public final float execute(final Player Enemy) {
+        if (modLv > 0.4f) {
+            modLv = 0.4f;
+        } else {
+            modLv = 0.01f * Enemy.getLvUp();
+        }
+        if (Math.round(Enemy.getStartHp() * (0.2f + modLv)) > Enemy.getHp()) {
+            return Math.round(dmg1 * mod1(Enemy));
+        } else {
+            return Math.round(Enemy.startHp * 0.2f);
+        }
+    }
+    public final float slam(final Player Enemy) {
 
     }
 }

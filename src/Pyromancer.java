@@ -102,4 +102,18 @@ public class Pyromancer extends Player {
     public final void takeDmg(int dmg) {
         this.hp = this.hp - dmg;
     }
+
+    public final boolean roundEffect() {
+
+    }
+
+    public final void dmgTake(final Player Enemy, final Map map) {
+        Enemy.takeDmg(Math.round(PyromancerAbilities.instance.getTotalDmg(Enemy, map)
+        * this.mod(map)));
+    }
+
+    public final int dmgNotModTake(final Player Enemy, final Map map) {
+        return Math.round(PyromancerAbilities.instance.getDmgNotMod(Enemy, map)
+        * this.mod(map));
+    }
 }

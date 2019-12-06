@@ -8,9 +8,11 @@ public abstract class Player {
     protected int hp;
     protected int xp;
     protected int lv;
+    protected Map map;
 
-    public Player(final String heroType) {
+    public Player(final String heroType, final Map map) {
         this.heroType = heroType;
+        this.map = map;
     }
 
     /*getteri pentru eroii derivati din clasa Player*/

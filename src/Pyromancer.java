@@ -1,14 +1,15 @@
 public class Pyromancer extends Player {
     protected int startHp = 500;
 
-    public Pyromancer(final int N, final int M) {
-        super("P");
+    public Pyromancer(final int N, final int M, final Map map) {
+        super("P", map);
         this.NPosition = N;
         this.MPosition = M;
     }
 
     public void isAttackedBy(Pyromancer attacker) {
-        float damageFireblast = PyromancerAbilities.getInstance().fireblast(attacker);
+        float damageFireblast = PyromancerAbilities.getInstance().fireblast(attacker)
+                * attacker.terrainModifier(this.map);
     }
 
     public void isAttackedBy(Knight attacker) {
@@ -40,7 +41,7 @@ public class Pyromancer extends Player {
             this.startHp = this.startHp + 50 * this.getLvUp();
             this.hp = this.startHp;
             this.lv = this.lv + this.getLvUp();
-            PyromancerAbilities.instance.dmgUp(this.getLvUp());
+            PyromancerAbilities.getInstance().dmgUp(this.getLvUp());
         }
     }
 
@@ -49,12 +50,12 @@ public class Pyromancer extends Player {
     }
 
     public final void dmgTake(final Player Enemy, final Map map) {
-        Enemy.takeDmg(Math.round(PyromancerAbilities.instance.getTotalDmg(Enemy, map)
+        Enemy.takeDmg(Math.round(PyromancerAbilities.getInstance().getTotalDmg(Enemy, map)
         * this.terrainModifier(map)));
     }
 
     public final int dmgNotModTake(final Player Enemy, final Map map) {
-        return Math.round(PyromancerAbilities.instance.getDmgNotMod(Enemy, map)
+        return Math.round(PyromancerAbilities.getInstance().getDmgNotMod(Enemy, map)
         * this.terrainModifier(map));
     }
 }

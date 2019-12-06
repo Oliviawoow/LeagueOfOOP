@@ -69,7 +69,7 @@ public class PyromancerAbilities extends PlayerAbilities {
 
 
     public final float fireblast(final Pyromancer enemy) {
-        return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
+        return dmg1 * this.getFirstAbilityClassModifier(enemy);
     }
     public final float fireblast(final Knight enemy) {
         return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
@@ -81,11 +81,6 @@ public class PyromancerAbilities extends PlayerAbilities {
         return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
     }
 
-
-
-    public final float fireblast(final Player Enemy) {
-        return Math.round(dmg1 * mod1(Enemy));
-    }
     public final float ignite(final Player Enemy, final Map map) {
         return Math.round(dmg2 * mod2(Enemy));
 

@@ -43,6 +43,6 @@ public abstract class Player {
     /*calculeaza damage-ul si ii scade eroului din viata*/
     public abstract void dmgTake(Player Enemy, Map map);
     /*damage nemodificat*/
-    public abstract int dmgNoModTake(Player Enemy, Map map);
+    public abstract int dmgNotModTake(Player Enemy, Map map);
 
 }

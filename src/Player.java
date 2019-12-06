@@ -32,14 +32,22 @@ public abstract class Player {
     public final int getLv() {
         return this.lv;
     }
-    public abstract int getLvUp();
+    public final int getLvUp() {
+        int nrLvUp = 0;
+        if (this.xp >= 250) {
+            nrLvUp = ((this.xp - 250) / 50 + 1) - this.lv;
+        }
+        return nrLvUp;
+    }
     public final boolean isDead() {
         return (this.hp <= 0);
     }
 
     /*setteri pentru eroii derivati din clasa Player*/
     /*creste Xp dupa o lupta castigata*/
-    public abstract void setXpUp(Player Enemy);
+    public final void setXpUp(Player Enemy) {
+        this.xp = this.xp + Math.max(0, 200 - (this.lv - Enemy.getLv()) * 40);
+    }
     /*verifica daca poate face level up si daca da modifica damage-ul si
      hp-ul initial si hp-ul curent redevine maxim*/
     public abstract void lvUp();
@@ -52,7 +60,9 @@ public abstract class Player {
         }
     }
     /*scade viata curenta in functie de damage-ul primit*/
-    public abstract void takeDmg(int dmg);
+    public final void takeDmg(int dmg) {
+        this.hp = this.hp - dmg;
+    }
     /*pentru efectele pe mai multe runde, salvam rundele, damage-ul primit si
     vedem daca are stun sau nu*/
     public abstract boolean roundEffect();

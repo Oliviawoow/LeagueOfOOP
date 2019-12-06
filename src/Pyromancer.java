@@ -7,26 +7,12 @@ public class Pyromancer extends Player {
         this.MPosition = M;
     }
 
-
-
     public final float mod(final Map map) {
-        float mod;
-        char x = map.getType(this.NPosition, this.MPosition);
-        if (x == 'V') {
-            mod = 0.25f;
-            return mod;
+        char type = map.getType(this.NPosition, this.MPosition);
+        if (type == 'V') {
+            return 0.25f;
         }
         return 0f;
-    }
-
-    public final int getLvUp() {
-        int nrLvUp;
-        nrLvUp = ((this.xp - 250) / 50 + 1) - this.lv;
-        return nrLvUp;
-    }
-
-    public final void setXpUp(final Player Enemy) {
-        this.xp = this.xp + Math.max(0, 200 - (this.lv - Enemy.getLv()) * 40);
     }
 
     public final void lvUp() {
@@ -36,10 +22,6 @@ public class Pyromancer extends Player {
             this.lv = this.lv + this.getLvUp();
             PyromancerAbilities.instance.dmgUp(this.getLvUp());
         }
-    }
-
-    public final void takeDmg(int dmg) {
-        this.hp = this.hp - dmg;
     }
 
     public final boolean roundEffect() {

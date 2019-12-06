@@ -94,7 +94,7 @@ public abstract class Player {
     public abstract void lvUp();
     /*verifica daca e mort si daca e adevarat il scoate de pe harta*/
     public final void setDead() {
-        if (this.getHp() <= 0) {
+        if (this.hp <= 0) {
             this.hp = 0;
             this.NPosition = -1;
             this.MPosition = -1;
@@ -103,6 +103,9 @@ public abstract class Player {
     /*scade viata curenta in functie de damage-ul primit*/
     public final void takeDmg(int dmg) {
         this.hp = this.hp - dmg;
+        if (this.hp <= 0) {
+            this.setDead();
+        }
     }
     /*pentru efectele pe mai multe runde, salvam rundele, damage-ul primit si
     vedem daca are stun sau nu*/

@@ -25,6 +25,7 @@ public class Pyromancer extends Player {
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
         int totalDmg = damageFireblast + damageIgnite;
+        this.takeDmg(totalDmg);
     }
 
     public void isAttackedBy(Knight attacker) {
@@ -73,6 +74,8 @@ public class Pyromancer extends Player {
     public final boolean roundEffect() {
         return false;
     }
+
+
 
 /*    public final void dmgTake(final Player Enemy, final Map map) {
         Enemy.takeDmg(Math.round(this.getAbilities().getTotalDmg(Enemy, map)

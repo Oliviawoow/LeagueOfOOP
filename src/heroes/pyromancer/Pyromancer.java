@@ -84,7 +84,12 @@ public class Pyromancer extends Player {
     }
 
     public final int dmgNoModifier() {
-        this.getAbilities().getDmg1()
+        return Math.round(this.getAbilities().getDmg1()
+                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()))
+                + Math.round(this.getAbilities().getDmg2()
+                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()))
+                + Math.round(this.getAbilities().getDmgPerRound()
+                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()));
     }
 
 }

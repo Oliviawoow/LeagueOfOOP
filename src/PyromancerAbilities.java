@@ -8,6 +8,32 @@ public class PyromancerAbilities extends PlayerAbilities {
         super();
     }
 
+    public final float getFirstAbilityTerrainModifier (final Pyromancer enemy) {
+        return -0.1f;
+    }
+    public final float getFirstAbilityTerrainModifier (final Knight enemy) {
+        return 0.2f;
+    }
+    public final float getFirstAbilityTerrainModifier (final Wizard enemy) {
+        return 0.05f;
+    }
+    public final float getFirstAbilityTerrainModifier (final Rogue enemy) {
+        return -0.2f;
+    }
+
+    public final float getSecondAbilityTerrainModifier (final Pyromancer enemy) {
+        return -0.1f;
+    }
+    public final float getSecondAbilityTerrainModifier (final Knight enemy) {
+        return 0.2f;
+    }
+    public final float getSecondAbilityTerrainModifier (final Wizard enemy) {
+        return 0.05f;
+    }
+    public final float getSecondAbilityTerrainModifier (final Rogue enemy) {
+        return -0.2f;
+    }
+    
     public final float mod1(final Player Enemy) {
         float mod1 = 0f;
         if (Enemy.heroType.equals("R")) {

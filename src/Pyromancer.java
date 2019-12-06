@@ -16,6 +16,16 @@ public class Pyromancer extends Player {
         this.Dead = false;
     }
 
+    public final int getStartHp() {
+        return this.startHP;
+    }
+    public final int getNPosition() {
+        return this.NPosition;
+    }
+    public final int getMPosition() {
+        return this.MPosition;
+    }
+
     public final void direction(final char dir) {
         boolean ok = true;
         if (dir == 'U' && ok) {
@@ -37,5 +47,15 @@ public class Pyromancer extends Player {
         if (dir == '_' && ok) {
             ok = false;
         }
+    }
+
+    public final float mod(final Map map) {
+        float mod;
+        char x = map.getType(this.NPosition, this.MPosition);
+        if (x == 'V') {
+            mod = 0.25f;
+            return mod;
+        }
+        return 0f;
     }
 }

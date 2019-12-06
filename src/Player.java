@@ -21,7 +21,7 @@ public abstract class Player {
     public abstract int getNPosition();
     public abstract int getMPosition();
     public abstract int getStartHP();
-    public abstract int getHP();
+    public abstract int getHp();
     public abstract int getXp();
     public abstract int getLv();
     public abstract int getLvUp();

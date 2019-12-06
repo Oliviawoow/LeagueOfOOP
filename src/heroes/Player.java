@@ -111,9 +111,9 @@ public abstract class Player {
     vedem daca are stun sau nu*/
     public abstract boolean roundEffect();
     /*calculeaza damage-ul si ii scade eroului din viata*/
-    public abstract void dmgTake(Player Enemy, Map map);
+    //public abstract void dmgTake(Player Enemy, Map map);
     /*damage nemodificat*/
-    public abstract int dmgNotModTake(Player Enemy, Map map);
+    //public abstract int dmgNotModTake(Player Enemy, Map map);
 
     public final void direction(final char dir) {
         boolean ok = true;

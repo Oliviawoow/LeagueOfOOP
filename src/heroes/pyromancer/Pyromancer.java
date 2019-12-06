@@ -36,6 +36,11 @@ public class Pyromancer extends Player {
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
         int totalDmg = damageExecute + damageSlam;
+        if (this.getHp() <= this.startHp * Math.min(0.4f, 0.2f + 0.1f * getLvUp())){
+            this.setDead();
+        } else {
+            this.takeDmg(totalDmg);
+        }
     }
 
     public void isAttackedBy(Rogue attacker) {
@@ -75,15 +80,4 @@ public class Pyromancer extends Player {
         return false;
     }
 
-
-
-/*    public final void dmgTake(final Player Enemy, final Map map) {
-        Enemy.takeDmg(Math.round(this.getAbilities().getTotalDmg(Enemy, map)
-        * this.getAbilities().terrainModifier(map, NPosition, MPosition)));
-    }*/
-
-   /* public final int dmgNotModTake(final Player Enemy, final Map map) {
-        return Math.round(this.getAbilities().getDmgNotMod(Enemy, map)
-        * this.terrainModifier(map));
-    }*/
 }

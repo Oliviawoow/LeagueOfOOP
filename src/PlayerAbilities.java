@@ -8,7 +8,7 @@ public abstract class PlayerAbilities {
     public abstract float mod1(Player Enemy);
     public abstract float mod2(Player Enemy);
     /*creste damage-ul in functie de level*/
-    public abstract void dmgUp(int lv);
+    public abstract void dmgUp(int nrLv);
     /*damage dat fara si cu modificator*/
     public abstract int getDmgNotMod(Player Enemy, Map map);
     public abstract int getDmgMod(Player Enemy, Map map);

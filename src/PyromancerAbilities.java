@@ -34,7 +34,7 @@ public class PyromancerAbilities extends PlayerAbilities {
         }
         return mod2;
     }
-    public final void dmgUp(int lv) {
+    public final void dmgUp(int nrLv) {
 
     }
     public final int getDmgNotMod(Player Enemy, Map map) {

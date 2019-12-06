@@ -61,7 +61,7 @@ public class Pyromancer extends Player {
         float damageDeflect =Math.round(attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
-
+        int damageDeflecter = ;
         int totalDmg = damageDeflect + damageDrain;
     }
 
@@ -80,6 +80,10 @@ public class Pyromancer extends Player {
 
     public final boolean roundEffect() {
         return false;
+    }
+
+    public final int dmgNoModifier() {
+        this.getAbilities().
     }
 
 }

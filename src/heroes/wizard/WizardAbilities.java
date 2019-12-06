@@ -46,7 +46,6 @@ public class WizardAbilities extends PlayerAbilities {
         if (this.dmg2 < 0.7f) {
             this.dmg2 = this.dmg2 + 0.02f * nrLv;
         }
-
     }
 
     public final float terrainModifier(final Map map, final int NPosition, final int MPosition) {

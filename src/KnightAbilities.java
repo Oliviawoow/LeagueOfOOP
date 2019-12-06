@@ -50,13 +50,13 @@ public class KnightAbilities extends PlayerAbilities {
         } else {
             modLv = 0.01f * Enemy.getLvUp();
         }
-        if (Math.round(Enemy.getStartHp() * (0.2f + modLv)) > Enemy.getHp()) {
+        if (Math.round(Enemy.getStartHp() * (0.2f + modLv)) < Enemy.getHp()) {
             return Math.round(dmg1 * mod1(Enemy));
         } else {
-            return Math.round(Enemy.startHp * 0.2f);
+            return (Enemy.getHp() - Enemy.getHp());
         }
     }
     public final float slam(final Player Enemy) {
-
+        return dmg2 * mod2(Enemy);
     }
 }

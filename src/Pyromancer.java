@@ -28,7 +28,9 @@ public class Pyromancer extends Player {
     public final int getLv() {
         return this.lv;
     }
-    public final boolean dea
+    public final boolean getDead() {
+        return this.Dead;
+    }
     public final int getNPosition() {
         return this.NPosition;
     }
@@ -70,6 +72,10 @@ public class Pyromancer extends Player {
     }
 
     public final int getLvUp() {
+
+    }
+
+    public final int setXpUp(final Player Enemy) {
 
     }
 }

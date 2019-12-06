@@ -29,7 +29,7 @@ public abstract class Player {
 
     /*setteri pentru eroii derivati din clasa Player*/
     /*creste Xp dupa o lupta castigata*/
-    public abstract void setXpUP(Player Enemy);
+    public abstract void setXpUp(Player Enemy);
     /*verifica daca poate face level up si daca da modifica damage-ul si
      hp-ul initial si hp-ul curent redevine maxim*/
     public abstract void lvUp();

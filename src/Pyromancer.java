@@ -72,11 +72,13 @@ public class Pyromancer extends Player {
     }
 
     public final int getLvUp() {
-
+        int nrLvUp;
+        nrLvUp = ((this.xp - 250) / 50 + 1) - this.lv;
+        return nrLvUp;
     }
 
     public final void setXpUp(final Player Enemy) {
-
+        this.xp = this.xp + Math.max(0, 200 - (this.lv - Enemy.getLv()) * 40);
     }
 
     public final void lvUp() {
@@ -84,7 +86,12 @@ public class Pyromancer extends Player {
     }
 
     public final void setDead() {
-
+        if (this.getHp() <= 0) {
+            this.Dead = true;
+            this.hp = 0;
+            this.NPosition = -1;
+            this.MPosition = -1;
+        }
     }
 
     public final void takeDmg(int dmg) {

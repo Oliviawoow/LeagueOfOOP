@@ -1,3 +1,10 @@
+package main;
+
+import heroes.Player;
+import heroes.knight.Knight;
+import heroes.pyromancer.Pyromancer;
+import heroes.rogue.Rogue;
+import heroes.wizard.Wizard;
 
 /*creaza un erou de un anumit tip*/
 public final class PlayerGenerator {

@@ -1,3 +1,8 @@
+package heroes.rogue;
+
+import heroes.Player;
+import heroes.pyromancer.PyromancerAbilities;
+
 public class Rogue extends Player {
     protected String heroType;
     protected int NPosition;

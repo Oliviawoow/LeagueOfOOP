@@ -1,5 +1,6 @@
+package heroes;
 
-/*clasa Player contine metodele necesare pentru functionarea tuturor eroilor*/
+/*clasa heroes.Player contine metodele necesare pentru functionarea tuturor eroilor*/
 public abstract class Player {
     protected String heroType;
     protected int NPosition;
@@ -15,7 +16,7 @@ public abstract class Player {
         this.map = map;
     }
 
-    /*getteri pentru eroii derivati din clasa Player*/
+    /*getteri pentru eroii derivati din clasa heroes.Player*/
     public final int getNPosition() {
         return this.NPosition;
     }
@@ -51,7 +52,7 @@ public abstract class Player {
     public abstract void isAttackedBy(Rogue attacker);
     public abstract void isAttackedBy(Wizard attacker);
 
-    /*setteri pentru eroii derivati din clasa Player*/
+    /*setteri pentru eroii derivati din clasa heroes.Player*/
     /*creste Xp dupa o lupta castigata*/
     public final void setXpUp(Player Enemy) {
         this.xp = this.xp + Math.max(0, 200 - (this.lv - Enemy.getLv()) * 40);

@@ -1,3 +1,5 @@
+package main;
+
 public class Map {
     private char[][] matrix;
     /*cream o matrice de dimensiune N x M care v-a contine tipurile de teren*/

@@ -1,3 +1,8 @@
+package heroes.knight;
+
+import heroes.Player;
+import heroes.PlayerAbilities;
+
 public class KnightAbilities extends PlayerAbilities {
     protected int dmg1 = 200;
     protected int dmg2 = 100;

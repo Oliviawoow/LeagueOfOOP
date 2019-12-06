@@ -1,3 +1,7 @@
+package heroes.knight;
+
+import heroes.Player;
+
 public class Knight extends Player {
     protected String heroType;
     protected int NPosition;

@@ -1,3 +1,4 @@
+package heroes;
 
 /*definire metode pentru abilitatile eroilor*/
 public abstract class PlayerAbilities {

@@ -92,7 +92,6 @@ public class Rogue extends Player {
 
     public final void setDead() {
         if (this.getHp() <= 0) {
-            this.Dead = true;
             this.hp = 0;
             this.NPosition = -1;
             this.MPosition = -1;

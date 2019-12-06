@@ -8,13 +8,9 @@ public abstract class Player {
     protected int hp;
     protected int xp;
     protected int lv;
-    protected boolean Dead;
 
     public Player(final String heroType) {
         this.heroType = heroType;
-        this.xp = 0;
-        this.lv = 0;
-        this.Dead = false;
     }
 
     /*getteri pentru eroii derivati din clasa Player*/
@@ -37,8 +33,8 @@ public abstract class Player {
         return this.lv;
     }
     public abstract int getLvUp();
-    public final boolean getDead() {
-        return this.Dead;
+    public final boolean isDead() {
+        return (this.hp <= 0);
     }
 
     /*setteri pentru eroii derivati din clasa Player*/
@@ -48,7 +44,13 @@ public abstract class Player {
      hp-ul initial si hp-ul curent redevine maxim*/
     public abstract void lvUp();
     /*verifica daca e mort si daca e adevarat il scoate de pe harta*/
-    public abstract void setDead();
+    public final void setDead() {
+        if (this.getHp() <= 0) {
+            this.hp = 0;
+            this.NPosition = -1;
+            this.MPosition = -1;
+        }
+    }
     /*scade viata curenta in functie de damage-ul primit*/
     public abstract void takeDmg(int dmg);
     /*pentru efectele pe mai multe runde, salvam rundele, damage-ul primit si
@@ -58,5 +60,28 @@ public abstract class Player {
     public abstract void dmgTake(Player Enemy, Map map);
     /*damage nemodificat*/
     public abstract int dmgNotModTake(Player Enemy, Map map);
+
+    public final void direction(final char dir) {
+        boolean ok = true;
+        if (dir == 'U' && ok) {
+            this.NPosition = this.NPosition --;
+            ok = false;
+        }
+        if (dir == 'D' && ok) {
+            this.NPosition = this.NPosition ++;
+            ok = false;
+        }
+        if (dir == 'L' && ok) {
+            this.MPosition = this.MPosition --;
+            ok = false;
+        }
+        if (dir == 'R' && ok) {
+            this.MPosition = this.MPosition ++;
+            ok = false;
+        }
+        if (dir == '_' && ok) {
+            ok = false;
+        }
+    }
 
 }

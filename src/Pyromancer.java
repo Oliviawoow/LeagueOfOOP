@@ -75,7 +75,19 @@ public class Pyromancer extends Player {
 
     }
 
-    public final int setXpUp(final Player Enemy) {
+    public final void setXpUp(final Player Enemy) {
+
+    }
+
+    public final void lvUp() {
+
+    }
+
+    public final void setDead() {
+
+    }
+
+    public final void takeDmg(int dmg) {
 
     }
 }

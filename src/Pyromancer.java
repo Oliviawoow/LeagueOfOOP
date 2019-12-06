@@ -7,7 +7,7 @@ public class Pyromancer extends Player {
         this.MPosition = M;
     }
 
-    public final float mod(final Map map) {
+    public final float terrainModifier(final Map map) {
         char type = map.getType(this.NPosition, this.MPosition);
         if (type == 'V') {
             return 0.25f;
@@ -30,11 +30,11 @@ public class Pyromancer extends Player {
 
     public final void dmgTake(final Player Enemy, final Map map) {
         Enemy.takeDmg(Math.round(PyromancerAbilities.instance.getTotalDmg(Enemy, map)
-        * this.mod(map)));
+        * this.terrainModifier(map)));
     }
 
     public final int dmgNotModTake(final Player Enemy, final Map map) {
         return Math.round(PyromancerAbilities.instance.getDmgNotMod(Enemy, map)
-        * this.mod(map));
+        * this.terrainModifier(map));
     }
 }

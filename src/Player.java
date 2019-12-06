@@ -42,6 +42,7 @@ public abstract class Player {
     public final boolean isDead() {
         return (this.hp <= 0);
     }
+    public abstract float terrainModifier(Map map);
 
     /*setteri pentru eroii derivati din clasa Player*/
     /*creste Xp dupa o lupta castigata*/

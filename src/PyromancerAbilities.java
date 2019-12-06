@@ -1,36 +1,36 @@
 public class PyromancerAbilities extends PlayerAbilities {
-    protected int dmg1 = 350;
-    protected int dmg2 = 150;
-    protected int dmgPerRound = 50;
-    public static final PyromancerAbilities instance = new PyromancerAbilities();
+    private int dmg1 = 350;
+    private int dmg2 = 150;
+    private int dmgPerRound = 50;
+    private static final PyromancerAbilities instance = new PyromancerAbilities();
 
     public PyromancerAbilities() {
         super();
     }
 
-    public final float getFirstAbilityTerrainModifier (final Pyromancer enemy) {
+    public final float getFirstAbilityClassModifier (final Pyromancer enemy) {
         return -0.1f;
     }
-    public final float getFirstAbilityTerrainModifier (final Knight enemy) {
+    public final float getFirstAbilityClassModifier (final Knight enemy) {
         return 0.2f;
     }
-    public final float getFirstAbilityTerrainModifier (final Wizard enemy) {
+    public final float getFirstAbilityClassModifier (final Wizard enemy) {
         return 0.05f;
     }
-    public final float getFirstAbilityTerrainModifier (final Rogue enemy) {
+    public final float getFirstAbilityClassModifier (final Rogue enemy) {
         return -0.2f;
     }
 
-    public final float getSecondAbilityTerrainModifier (final Pyromancer enemy) {
+    public final float getSecondAbilityClassModifier (final Pyromancer enemy) {
         return -0.1f;
     }
-    public final float getSecondAbilityTerrainModifier (final Knight enemy) {
+    public final float getSecondAbilityClassModifier (final Knight enemy) {
         return 0.2f;
     }
-    public final float getSecondAbilityTerrainModifier (final Wizard enemy) {
+    public final float getSecondAbilityClassModifier (final Wizard enemy) {
         return 0.05f;
     }
-    public final float getSecondAbilityTerrainModifier (final Rogue enemy) {
+    public final float getSecondAbilityClassModifier (final Rogue enemy) {
         return -0.2f;
     }
     
@@ -68,6 +68,21 @@ public class PyromancerAbilities extends PlayerAbilities {
     }
 
 
+    public final float fireblast(final Pyromancer enemy) {
+        return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
+    }
+    public final float fireblast(final Knight enemy) {
+        return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
+    }
+    public final float fireblast(final Rogue enemy) {
+        return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
+    }
+    public final float fireblast(final Wizard enemy) {
+        return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
+    }
+
+
+
     public final float fireblast(final Player Enemy) {
         return Math.round(dmg1 * mod1(Enemy));
     }
@@ -86,5 +101,9 @@ public class PyromancerAbilities extends PlayerAbilities {
     }
     public final float getTotalDmg(final Player Enemy, final Map map) {
         return fireblast(Enemy) + ignite(Enemy, map);
+    }
+
+    public static PyromancerAbilities getInstance() {
+        return instance;
     }
 }

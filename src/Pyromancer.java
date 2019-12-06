@@ -8,7 +8,7 @@ public class Pyromancer extends Player {
     }
 
     public void isAttackedBy(Pyromancer attacker) {
-
+        float damageFireblast = PyromancerAbilities.getInstance().fireblast(attacker);
     }
 
     public void isAttackedBy(Knight attacker) {

@@ -2,8 +2,8 @@ public class Pyromancer extends Player {
     protected String heroType;
     protected int NPosition;
     protected int MPosition;
-    protected int startHP = 500;
-    protected int HP;
+    protected int startHp = 500;
+    protected int Hp;
     protected int xp;
     protected int lv;
     protected boolean Dead;
@@ -17,7 +17,7 @@ public class Pyromancer extends Player {
     }
 
     public final int getStartHp() {
-        return this.startHP;
+        return this.startHp;
     }
     public final int getNPosition() {
         return this.NPosition;

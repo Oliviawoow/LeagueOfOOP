@@ -19,7 +19,7 @@ public abstract class Player {
     private Map map;
     private PlayerAbilities abilities;
     private int roundDmg;
-    private int roundStun;
+    private boolean roundStun;
     private int dmgOverTime;
 
 
@@ -89,7 +89,7 @@ public abstract class Player {
         return dmgOverTime;
     }
 
-    public final int getRoundStun() {
+    public final boolean getRoundStun() {
         return roundStun;
     }
 

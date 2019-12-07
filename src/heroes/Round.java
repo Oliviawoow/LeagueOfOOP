@@ -8,7 +8,7 @@ public class Round {
 
     }
 
-     public final void battle(final Player player1, final Player player2, final Map map) {
+     public final void battle(final Player player1, final Player player2) {
         if (!player1.isDead() && !player2.isDead()) {
             player1.attackPlayer(player2);
             player2.attackPlayer(player1);
@@ -24,5 +24,22 @@ public class Round {
         }
      }
 
-
+    public final void gameRounds(final Player[] player, final int nrPlayer, final Map map, final String direction) {
+        for (int i = 0; i < nrPlayer; i ++) {
+            if (!player[i].getRoundStun()) {
+                player[i].direction(direction.charAt(i));
+            }
+            if (player[i].getHp() <= 0) {
+                player[i].setDead();
+            }
+        }
+        for (int i = 0; i < nrPlayer; i ++) {
+            for (int j = i + 1; j < nrPlayer; j ++) {
+                if (player[i].getNPosition() == player[j].getNPosition()
+                && player[i].getMPosition() == player[j].getMPosition()) {
+                    this.battle(player[i], player[j]);
+                }
+            }
+        }
+    }
 }

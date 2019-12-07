@@ -1,7 +1,6 @@
 package main;
 
 import heroes.Round;
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import fileio.implementations.FileReader;

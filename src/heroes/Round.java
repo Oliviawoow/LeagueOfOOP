@@ -1,7 +1,5 @@
 package heroes;
 
-import main.Map;
-
 public class Round {
     public Round() {
 

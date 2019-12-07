@@ -20,6 +20,7 @@ public abstract class Player {
     private int roundDmg;
     private boolean roundStun;
     private int dmgOverTime;
+    private boolean battled = false;
 
 
     public Player(final String heroType, final Map map, final PlayerAbilities abilities, final int NPosition, final int MPosition) {
@@ -129,6 +130,14 @@ public abstract class Player {
     /*verifica daca poate face level up si daca da modifica damage-ul si
      hp-ul initial si hp-ul curent redevine maxim*/
     public abstract void lvUp();
+
+    public final boolean getBattled() {
+        return this.battled;
+    }
+
+    public final void setBattled(boolean battled) {
+        this.battled = battled;
+    }
 
     /*verifica daca e mort si daca e adevarat il scoate de pe harta*/
     public final void setDead() {

@@ -35,26 +35,44 @@ public class Main {
                         read.nextInt(), read.nextInt(), map);
             }
 
+            FileWriter write = new FileWriter(fileOut);
             /*creere de runde*/
             int nrRounds = read.nextInt();
+            int initialNoRounds = nrRounds;
             while (nrRounds != 0) {
                 String directions = read.nextWord();
                 round.gameRounds(player, nrPlayers, directions);
+
+                try {
+                    write.writeWord("Round: " + (initialNoRounds - nrRounds) + "\n");
+                    for (Player p : player) {
+                        if (p.isDead()) {
+                            write.writeWord(p.getHeroType() + " " + "dead\n");
+                        } else {
+                            write.writeWord(p.getHeroType() + " " + p.getLv()
+                                    + " " + p.getXp() + " "
+                                    + p.getHp() + " " + p.getNPosition()
+                                    + " " + p.getMPosition() + "\n");
+                        }
+                    }
+                    write.writeWord("-----------END ROUND--------\n");
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+
                 nrRounds--;
             }
             /*scrierea in fisier*/
             try {
-                FileWriter write = new FileWriter(fileOut);
+//                FileWriter write = new FileWriter(fileOut);
                 for (int i = 0; i < nrPlayers; i++) {
                     if (player[i].isDead()) {
-                        write.writeWord(player[i].getHeroType() + " " + "dead");
-                        write.writeNewLine();
+                        write.writeWord(player[i].getHeroType() + " " + "dead\n");
                     } else {
                         write.writeWord(player[i].getHeroType() + " " + player[i].getLv()
                                 + " " + player[i].getXp() + " "
                                 + player[i].getHp() + " " + player[i].getNPosition()
-                                + " " + player[i].getMPosition());
-                        write.writeNewLine();
+                                + " " + player[i].getMPosition() + "\n");
                     }
                 }
                 write.close();

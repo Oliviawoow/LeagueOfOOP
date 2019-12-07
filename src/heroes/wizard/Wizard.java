@@ -68,9 +68,7 @@ public class Wizard extends Player {
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
         this.setRoundStun(true);
-        this.setRoundDmg(Math.round(attacker.getAbilities().ability2(this)
-                * attacker.getAbilities().terrainModifier(attacker.getMap(),
-                attacker.getNPosition(), attacker.getMPosition())));
+        this.setRoundDmg(damageParalysis);
         this.setDmgOverTime(3 * statusEffectsModifier);
         int totalDmg = damageBackstab + damageParalysis;
         this.takeDmg(totalDmg);

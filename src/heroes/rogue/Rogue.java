@@ -62,16 +62,14 @@ public class Rogue extends Player {
             }
         }
         attacker.incrementBattles();
-        int damageBackstab =Math.round(attacker.getAbilities().ability1(this)
+        int damageBackstab = Math.round(attacker.getAbilities().ability1(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()) * criticalModifier);
-        int damageParalysis =Math.round(attacker.getAbilities().ability2(this)
+        int damageParalysis = Math.round(attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
         this.setRoundStun(true);
-        this.setRoundDmg(Math.round(attacker.getAbilities().ability2(this)
-                * attacker.getAbilities().terrainModifier(attacker.getMap(),
-                attacker.getNPosition(), attacker.getMPosition())));
+        this.setRoundDmg(damageParalysis);
         this.setDmgOverTime(3 * statusEffectsModifier);
         int totalDmg = damageBackstab + damageParalysis;
         this.takeDmg(totalDmg);
@@ -85,7 +83,16 @@ public class Rogue extends Player {
         float damageDeflect = attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition());
-        damageDeflect = damageDeflect * this.dmgNoModifier();
+        float critModifier = 1f;
+        if ((this.getBattled() && (battles - 1) % 3 == 0) || (!this.getBattled() && battles % 3 == 0)
+                && this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()) > 1f) {
+            critModifier = 1.5f;
+        }
+        damageDeflect = damageDeflect
+                * (Math.round(this.getAbilities().getDmg1()
+                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()) * critModifier)
+                + Math.round(this.getAbilities().getDmg2()
+                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition())));
         int totalDmg = Math.round(damageDeflect) + Math.round(damageDrain);
         this.takeDmg(totalDmg);
     }

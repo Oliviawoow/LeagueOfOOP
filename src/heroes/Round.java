@@ -8,7 +8,9 @@ public class Round {
      public final void battle(final Player player1, final Player player2) {
         if (!player1.isDead() && !player2.isDead()) {
             player1.attackPlayer(player2);
+            player1.setBattled(true);
             player2.attackPlayer(player1);
+            player1.setBattled(false);
             player1.setDead();
             player2.setDead();
             if (player1.getHp() == 0) {

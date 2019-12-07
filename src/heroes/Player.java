@@ -102,23 +102,13 @@ public abstract class Player {
         this.dmgOverTime = dmgOverTime;
     }
 
-    public void decDmgOverTime() {
-        --this.dmgOverTime;
-        if (this.dmgOverTime == 0) {
-            this.roundStun = false;
-            this.roundDmg = 0;
-        }
-    }
-
     public final boolean getRoundStun() {
         return roundStun;
     }
 
-    public final void setRoundStun() {
-        roundStun = true;
+    public final void setRoundStun(boolean value) {
+        roundStun = value;
     }
-
-    public abstract int dmgOverTime();
 
     public abstract void isAttackedBy(Pyromancer attacker);
     public abstract void isAttackedBy(Knight attacker);
@@ -158,6 +148,17 @@ public abstract class Player {
         this.hp = this.hp - dmg;
         if (this.hp <= 0) {
             this.setDead();
+        }
+    }
+
+    public final void takeDmgOverTime() {
+        if (dmgOverTime > 0) {
+            this.hp = this.hp - roundDmg;
+            --this.dmgOverTime;
+            if (this.dmgOverTime == 0) {
+                this.roundStun = false;
+                this.roundDmg = 0;
+            }
         }
     }
 

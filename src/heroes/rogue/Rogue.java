@@ -77,6 +77,14 @@ public class Rogue extends Player {
         }
     }
 
+    public final int getBattles() {
+        return battles;
+    }
+
+    public final void incrementBattles() {
+        battles++;
+    }
+
     public final boolean roundEffect() {
         return false;
     }

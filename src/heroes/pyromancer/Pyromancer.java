@@ -30,32 +30,40 @@ public class Pyromancer extends Player {
     }
 
     public void isAttackedBy(Knight attacker) {
-        int damageExecute =Math.round(attacker.getAbilities().ability1(this)
-                * attacker.getAbilities().terrainModifier(attacker.getMap(),
-                attacker.getNPosition(), attacker.getMPosition()));
-        int damageSlam =Math.round(attacker.getAbilities().ability2(this)
-                * attacker.getAbilities().terrainModifier(attacker.getMap(),
-                attacker.getNPosition(), attacker.getMPosition()));
-        int totalDmg = damageExecute + damageSlam;
         if (this.getHp() <= this.startHp * Math.min(0.4f, 0.2f + 0.1f * getLvUp())){
             this.setDead();
         } else {
+            int damageExecute =Math.round(attacker.getAbilities().ability1(this)
+                    * attacker.getAbilities().terrainModifier(attacker.getMap(),
+                    attacker.getNPosition(), attacker.getMPosition()));
+            int damageSlam =Math.round(attacker.getAbilities().ability2(this)
+                    * attacker.getAbilities().terrainModifier(attacker.getMap(),
+                    attacker.getNPosition(), attacker.getMPosition()));
+            int totalDmg = damageExecute + damageSlam;
             this.takeDmg(totalDmg);
         }
     }
 
     public void isAttackedBy(Rogue attacker) {
+        int statusEffectsModifier = 1;
+        float criticalModifier = 1f;
+
         if (attacker.getAbilities().terrainModifier(attacker.getMap(), attacker.getNPosition(), attacker.getMPosition()) != 0) {
-            int x = 2;
+            statusEffectsModifier = 2;
+            if (attacker.getBattles() % 3 == 0) {
+                criticalModifier = 1.5f;
+            }
         }
+        attacker.incrementBattles();
         int damageBackstab =Math.round(attacker.getAbilities().ability1(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
-                attacker.getNPosition(), attacker.getMPosition()));
+                attacker.getNPosition(), attacker.getMPosition()) * criticalModifier);
         int damageParalysis =Math.round(attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
 
         int totalDmg = damageBackstab + damageParalysis;
+        this.takeDmg(totalDmg);
     }
 
     public void isAttackedBy(Wizard attacker) {

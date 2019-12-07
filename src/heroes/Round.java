@@ -26,6 +26,8 @@ public class Round {
         for (int i = 0; i < nrPlayer; i++) {
             if (!player[i].getRoundStun() && !player[i].isDead()) {
                 player[i].direction(direction.charAt(i));
+            } else if (player[i].getRoundStun() && !player[i].isDead()){
+                player[i].decDmgOverTime();
             }
             if (player[i].getHp() <= 0) {
                 player[i].setDead();

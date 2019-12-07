@@ -102,6 +102,14 @@ public abstract class Player {
         this.dmgOverTime = dmgOverTime;
     }
 
+    public void decDmgOverTime() {
+        --this.dmgOverTime;
+        if (this.dmgOverTime == 0) {
+            this.roundStun = false;
+            this.roundDmg = 0;
+        }
+    }
+
     public final boolean getRoundStun() {
         return roundStun;
     }

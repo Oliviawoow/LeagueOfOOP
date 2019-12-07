@@ -24,6 +24,7 @@ public class Rogue extends Player {
         this.setRoundDmg(Math.round(attacker.getAbilities().abilityOverTime(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition())));
+        this.setRoundStun(false);
         this.setDmgOverTime(2);
         int totalDmg = damageFireblast + damageIgnite;
         this.takeDmg(totalDmg);
@@ -39,7 +40,7 @@ public class Rogue extends Player {
             int damageSlam =Math.round(attacker.getAbilities().ability2(this)
                     * attacker.getAbilities().terrainModifier(attacker.getMap(),
                     attacker.getNPosition(), attacker.getMPosition()));
-            this.setRoundStun();
+            this.setRoundStun(true);
             this.setRoundDmg(0);
             this.setDmgOverTime(1);
             int totalDmg = damageExecute + damageSlam;
@@ -65,7 +66,7 @@ public class Rogue extends Player {
         int damageParalysis =Math.round(attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
-        this.setRoundStun();
+        this.setRoundStun(true);
         this.setRoundDmg(Math.round(attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition())));

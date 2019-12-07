@@ -24,6 +24,11 @@ public abstract class PlayerAbilities {
 
     public abstract float terrainModifier(final Map map, final int NPosition, final int MPosition);
 
+    public abstract float abilityOverTime(final Pyromancer enemy);
+    public abstract float abilityOverTime(final Knight enemy);
+    public abstract float abilityOverTime(final Rogue enemy);
+    public abstract float abilityOverTime(final Wizard enemy);
+
 
     public abstract float ability1(final Pyromancer enemy);
     public abstract float ability1(final Knight enemy);

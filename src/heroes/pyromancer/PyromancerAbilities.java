@@ -57,6 +57,18 @@ public class PyromancerAbilities extends PlayerAbilities {
         }
         return 0f;
     }
+    public final float abilityOverTime(final Pyromancer enemy) {
+        return dmgPerRound * this.getSecondAbilityClassModifier(enemy);
+    }
+    public final float abilityOverTime(final Knight enemy) {
+        return dmgPerRound * this.getSecondAbilityClassModifier(enemy);
+    }
+    public final float abilityOverTime(final Rogue enemy) {
+        return dmgPerRound * this.getSecondAbilityClassModifier(enemy);
+    }
+    public final float abilityOverTime(final Wizard enemy) {
+        return dmgPerRound * this.getSecondAbilityClassModifier(enemy);
+    }
 
     public final float ability1(final Pyromancer enemy) {
         return dmg1 * this.getFirstAbilityClassModifier(enemy);

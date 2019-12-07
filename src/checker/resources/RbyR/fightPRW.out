@@ -1,0 +1,10 @@
+Round: 0
+P 0 0 14 0 0
+R 0 0 200 0 0
+-----------END ROUND--------
+Round: 1
+P dead
+R 0 0 160 0 0
+-----------END ROUND--------
+P dead
+R 0 0 160 0 0

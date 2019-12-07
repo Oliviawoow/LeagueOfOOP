@@ -18,6 +18,12 @@ public class Round {
                 player1.setXpUp(player2);
                 player1.lvUp();
             }
+            if (player1.getHp() <= 0) {
+                player1.setDead();
+            }
+            if (player2.getHp() <= 0) {
+                player2.setDead();
+            }
         }
      }
 
@@ -26,7 +32,8 @@ public class Round {
         for (int i = 0; i < nrPlayer; i++) {
             if (!player[i].getRoundStun() && !player[i].isDead()) {
                 player[i].direction(direction.charAt(i));
-            } else if (player[i].getRoundStun() && !player[i].isDead()){
+            }
+            if(!player[i].isDead()) {
                 player[i].takeDmgOverTime();
             }
             if (player[i].getHp() <= 0) {

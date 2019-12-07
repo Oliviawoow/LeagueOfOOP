@@ -146,9 +146,6 @@ public abstract class Player {
      caz de viata lui ajunge sub 0*/
     public final void takeDmg(int dmg) {
         this.hp = this.hp - dmg;
-        if (this.hp <= 0) {
-            this.setDead();
-        }
     }
 
     public final void takeDmgOverTime() {
@@ -167,8 +164,6 @@ public abstract class Player {
         return Math.round(this.getAbilities().getDmg1()
                 * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()))
                 + Math.round(this.getAbilities().getDmg2()
-                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()))
-                + Math.round(this.getAbilities().getDmgPerRound()
                 * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()));
     }
 

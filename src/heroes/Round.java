@@ -34,7 +34,7 @@ public class Round {
             }
         }
         /*incepe batalia*/
-        for (int i = 0; i < nrPlayer; i++) {
+        for (int i = 0; i < nrPlayer - 1; i++) {
             for (int j = i + 1; j < nrPlayer; j ++) {
                 if (player[i].getNPosition() == player[j].getNPosition()
                 && player[i].getMPosition() == player[j].getMPosition()) {

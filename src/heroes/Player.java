@@ -152,7 +152,7 @@ public abstract class Player {
     }
 
     public final void takeDmgOverTime() {
-        if (dmgOverTime > 0) {
+        if (this.dmgOverTime > 0) {
             this.hp = this.hp - roundDmg;
             --this.dmgOverTime;
             if (this.dmgOverTime == 0) {

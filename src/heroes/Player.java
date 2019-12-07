@@ -17,6 +17,10 @@ public abstract class Player {
     private int lv;
     private Map map;
     private PlayerAbilities abilities;
+    private int roundDmg;
+    private int roundStun;
+    private int dmgOverTime;
+
 
     public Player(final String heroType, final Map map, final PlayerAbilities abilities, final int NPosition, final int MPosition) {
         this.MPosition = MPosition;
@@ -75,6 +79,20 @@ public abstract class Player {
     public void setXp(int xp) {
         this.xp = xp;
     }
+
+    public final int getRoundDmg() {
+        return roundDmg;
+    }
+
+    public final int getDmgOverTime() {
+        return dmgOverTime;
+    }
+
+    public final int getRoundStun() {
+        return roundStun;
+    }
+
+
 
     public abstract void isAttackedBy(Pyromancer attacker);
     public abstract void isAttackedBy(Knight attacker);

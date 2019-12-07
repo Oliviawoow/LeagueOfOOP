@@ -6,6 +6,7 @@ import heroes.rogue.Rogue;
 import heroes.wizard.Wizard;
 import main.Map;
 
+
 /*clasa heroes.Player contine metodele necesare pentru functionarea tuturor eroilor*/
 public abstract class Player {
     private String heroType;
@@ -92,12 +93,14 @@ public abstract class Player {
         return roundStun;
     }
 
-
+    public abstract int dmgOverTime();
 
     public abstract void isAttackedBy(Pyromancer attacker);
     public abstract void isAttackedBy(Knight attacker);
     public abstract void isAttackedBy(Rogue attacker);
     public abstract void isAttackedBy(Wizard attacker);
+
+    public abstract void attackPlayer(Player enemy);
 
     public final PlayerAbilities getAbilities() {
         return this.abilities;

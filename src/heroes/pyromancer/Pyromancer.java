@@ -48,7 +48,8 @@ public class Pyromancer extends Player {
         int statusEffectsModifier = 1;
         float criticalModifier = 1f;
 
-        if (attacker.getAbilities().terrainModifier(attacker.getMap(), attacker.getNPosition(), attacker.getMPosition()) != 0) {
+        if (attacker.getAbilities().terrainModifier(attacker.getMap(), attacker.getNPosition(), attacker.getMPosition())
+                != 0) {
             statusEffectsModifier = 2;
             if (attacker.getBattles() % 3 == 0) {
                 criticalModifier = 1.5f;

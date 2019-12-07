@@ -1,14 +1,9 @@
 package heroes.pyromancer;
 
 import heroes.Player;
-import heroes.PlayerAbilities;
 import heroes.knight.Knight;
-import heroes.knight.KnightAbilities;
 import heroes.rogue.Rogue;
-import heroes.rogue.RogueAbilities;
 import heroes.wizard.Wizard;
-import heroes.wizard.WizardAbilities;
-import heroes.pyromancer.PyromancerAbilities;
 import main.Map;
 
 public class Pyromancer extends Player {

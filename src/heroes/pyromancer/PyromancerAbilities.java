@@ -1,6 +1,5 @@
 package heroes.pyromancer;
 
-import heroes.Player;
 import heroes.PlayerAbilities;
 import heroes.knight.Knight;
 import heroes.wizard.Wizard;
@@ -11,9 +10,8 @@ public class PyromancerAbilities extends PlayerAbilities {
     private int dmg1 = 350;
     private int dmg2 = 150;
     private int dmgPerRound = 50;
-    private int affectedRounds = 0;
 
-    public PyromancerAbilities() {
+    PyromancerAbilities() {
         super();
     }
 
@@ -57,6 +55,7 @@ public class PyromancerAbilities extends PlayerAbilities {
         }
         return 0f;
     }
+
     public final float abilityOverTime(final Pyromancer enemy) {
         return dmgPerRound * this.getSecondAbilityClassModifier(enemy);
     }
@@ -108,7 +107,4 @@ public class PyromancerAbilities extends PlayerAbilities {
         return dmgPerRound;
     }
 
-    public final int affectedRounds() {
-        return affectedRounds;
-    }
 }

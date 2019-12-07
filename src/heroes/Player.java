@@ -6,7 +6,6 @@ import heroes.rogue.Rogue;
 import heroes.wizard.Wizard;
 import main.Map;
 
-
 /*clasa heroes.Player contine metodele necesare pentru functionarea tuturor eroilor*/
 public abstract class Player {
     private String heroType;
@@ -31,25 +30,31 @@ public abstract class Player {
         this.abilities = abilities;
     }
 
-    /*getteri pentru eroii derivati din clasa heroes.Player*/
+    /*getteri si setteri pentru eroii derivati din clasa Player*/
     public final int getNPosition() {
         return this.NPosition;
     }
+
     public final int getMPosition() {
         return this.MPosition;
     }
+
     public final int getStartHp() {
         return this.startHp;
     }
+
     public final int getHp() {
         return this.hp;
     }
+
     public final int getXp() {
         return this.xp;
     }
+
     public final int getLv() {
         return this.lv;
     }
+
     public final int getLvUp() {
         int nrLvUp = 0;
         if (this.xp >= 250) {
@@ -100,6 +105,7 @@ public abstract class Player {
     public final boolean getRoundStun() {
         return roundStun;
     }
+
     public final void setRoundStun() {
         roundStun = true;
     }
@@ -116,14 +122,16 @@ public abstract class Player {
     public final PlayerAbilities getAbilities() {
         return this.abilities;
     }
-    /*setteri pentru eroii derivati din clasa heroes.Player*/
+
     /*creste Xp dupa o lupta castigata*/
     public final void setXpUp(Player Enemy) {
         this.xp = this.xp + Math.max(0, 200 - (this.lv - Enemy.getLv()) * 40);
     }
+
     /*verifica daca poate face level up si daca da modifica damage-ul si
      hp-ul initial si hp-ul curent redevine maxim*/
     public abstract void lvUp();
+
     /*verifica daca e mort si daca e adevarat il scoate de pe harta*/
     public final void setDead() {
         if (this.hp <= 0) {
@@ -135,18 +143,16 @@ public abstract class Player {
             this.roundStun = false;
         }
     }
-    /*scade viata curenta in functie de damage-ul primit*/
+
+    /*scade viata curenta in functie de damage-ul primit si il seteaza mort in
+     caz de viata lui ajunge sub 0*/
     public final void takeDmg(int dmg) {
         this.hp = this.hp - dmg;
         if (this.hp <= 0) {
             this.setDead();
         }
     }
-    /*pentru efectele pe mai multe runde, salvam rundele, damage-ul primit si
-    vedem daca are stun sau nu*/
-    public abstract boolean roundEffect();
-    /*calculeaza damage-ul si ii scade eroului din viata*/
-    //public abstract void dmgTake(Player Enemy, Map map);
+
     /*damage nemodificat*/
     public final int dmgNoModifier() {
         return Math.round(this.getAbilities().getDmg1()
@@ -156,8 +162,8 @@ public abstract class Player {
                 + Math.round(this.getAbilities().getDmgPerRound()
                 * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()));
     }
-    //public abstract int dmgNotModTake(Player Enemy, Map map);
 
+    /*miscarea eroului*/
     public final void direction(final char dir) {
         if (dir == 'U') {
             this.NPosition = this.NPosition --;

@@ -46,6 +46,4 @@ public abstract class PlayerAbilities {
     public abstract float getDmg1();
     public abstract float getDmg2();
     public abstract int getDmgPerRound();
-    public abstract int affectedRounds();
-
 }

@@ -16,29 +16,29 @@ public class KnightAbilities extends PlayerAbilities {
     }
 
     public final float getFirstAbilityClassModifier (final Pyromancer enemy) {
-        return 0.1f;
+        return 1.1f;
     }
     public final float getFirstAbilityClassModifier (final Knight enemy) {
         return 0f;
     }
     public final float getFirstAbilityClassModifier (final Wizard enemy) {
-        return -0.2f;
+        return 0.8f;
     }
     public final float getFirstAbilityClassModifier (final Rogue enemy) {
-        return 0.15f;
+        return 1.15f;
     }
 
     public final float getSecondAbilityClassModifier (final Pyromancer enemy) {
-        return -0.1f;
+        return 0.9f;
     }
     public final float getSecondAbilityClassModifier (final Knight enemy) {
-        return 0.2f;
+        return 1.2f;
     }
     public final float getSecondAbilityClassModifier (final Wizard enemy) {
-        return 0.05f;
+        return 1.05f;
     }
     public final float getSecondAbilityClassModifier (final Rogue enemy) {
-        return -0.2f;
+        return 0.8f;
     }
 
     public final void dmgUp(int nrLv) {
@@ -50,7 +50,7 @@ public class KnightAbilities extends PlayerAbilities {
     public final float terrainModifier(final Map map, final int NPosition, final int MPosition) {
         char type = map.getType(NPosition, MPosition);
         if (type == 'L') {
-            return 0.15f;
+            return 1.15f;
         }
         return 0f;
     }
@@ -96,12 +96,4 @@ public class KnightAbilities extends PlayerAbilities {
     public final int affectedRounds() {
         return 0;
     }
-
-   /* public final int getDmgMod(final Player Enemy, final Map map) {
-        return Math.round(fireblast(Enemy) + ignite(Enemy, map));
-    }
-    public final float getTotalDmg(final Player Enemy, final Map map) {
-        return fireblast(Enemy) + ignite(Enemy, map);
-    }*/
-
 }

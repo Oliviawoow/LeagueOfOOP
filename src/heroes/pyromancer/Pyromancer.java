@@ -62,7 +62,11 @@ public class Pyromancer extends Player {
         int damageParalysis =Math.round(attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
-
+        this.setRoundStun();
+        this.setRoundDmg(Math.round(attacker.getAbilities().ability2(this)
+                * attacker.getAbilities().terrainModifier(attacker.getMap(),
+                attacker.getNPosition(), attacker.getMPosition())));
+        this.setDmgOverTime(3 * statusEffectsModifier);
         int totalDmg = damageBackstab + damageParalysis;
         this.takeDmg(totalDmg);
     }

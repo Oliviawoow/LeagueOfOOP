@@ -85,12 +85,23 @@ public abstract class Player {
         return roundDmg;
     }
 
+    public void setRoundDmg(int roundDmg) {
+        this.roundDmg = roundDmg;
+    }
+
     public final int getDmgOverTime() {
         return dmgOverTime;
     }
 
+    public void setDmgOverTime(int dmgOverTime) {
+        this.dmgOverTime = dmgOverTime;
+    }
+
     public final boolean getRoundStun() {
         return roundStun;
+    }
+    public final void setRoundStun() {
+        roundStun = true;
     }
 
     public abstract int dmgOverTime();
@@ -145,25 +156,24 @@ public abstract class Player {
     //public abstract int dmgNotModTake(Player Enemy, Map map);
 
     public final void direction(final char dir) {
-        boolean ok = true;
         if (dir == 'U' && ok) {
             this.NPosition = this.NPosition --;
-            ok = false;
+            return;
         }
         if (dir == 'D' && ok) {
             this.NPosition = this.NPosition ++;
-            ok = false;
+            return;
         }
         if (dir == 'L' && ok) {
             this.MPosition = this.MPosition --;
-            ok = false;
+            return;
         }
         if (dir == 'R' && ok) {
             this.MPosition = this.MPosition ++;
-            ok = false;
+            return;
         }
         if (dir == '_' && ok) {
-            ok = false;
+            return;
         }
     }
 

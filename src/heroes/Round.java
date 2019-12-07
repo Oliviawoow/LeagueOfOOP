@@ -25,8 +25,9 @@ public class Round {
      }
 
     public final void gameRounds(final Player[] player, final int nrPlayer, final Map map, final String direction) {
+        /*misca eroul*/
         for (int i = 0; i < nrPlayer; i ++) {
-            if (!player[i].getRoundStun()) {
+            if (!player[i].getRoundStun() && !player[i].isDead()) {
                 player[i].direction(direction.charAt(i));
             }
             if (player[i].getHp() <= 0) {

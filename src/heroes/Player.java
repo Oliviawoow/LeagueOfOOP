@@ -130,6 +130,9 @@ public abstract class Player {
             this.hp = 0;
             this.NPosition = -1;
             this.MPosition = -1;
+            this.dmgOverTime = 0;
+            this.roundDmg = 0;
+            this.roundStun = false;
         }
     }
     /*scade viata curenta in functie de damage-ul primit*/
@@ -156,23 +159,23 @@ public abstract class Player {
     //public abstract int dmgNotModTake(Player Enemy, Map map);
 
     public final void direction(final char dir) {
-        if (dir == 'U' && ok) {
+        if (dir == 'U') {
             this.NPosition = this.NPosition --;
             return;
         }
-        if (dir == 'D' && ok) {
+        if (dir == 'D') {
             this.NPosition = this.NPosition ++;
             return;
         }
-        if (dir == 'L' && ok) {
+        if (dir == 'L') {
             this.MPosition = this.MPosition --;
             return;
         }
-        if (dir == 'R' && ok) {
+        if (dir == 'R') {
             this.MPosition = this.MPosition ++;
             return;
         }
-        if (dir == '_' && ok) {
+        if (dir == '_') {
             return;
         }
     }

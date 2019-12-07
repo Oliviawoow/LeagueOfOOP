@@ -11,6 +11,8 @@ public class Knight extends Player {
 
     public Knight(final int N, final int M, final Map map) {
         super("K", map, new KnightAbilities(), N, M);
+        this.setHp(startHp);
+
     }
 
     public void isAttackedBy(Pyromancer attacker) {

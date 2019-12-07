@@ -11,6 +11,8 @@ public class Wizard extends Player {
 
     public Wizard(final int N, final int M, final Map map) {
         super("W", map, new WizardAbilities(), N, M);
+        this.setHp(startHp);
+
     }
 
     public void isAttackedBy(Pyromancer attacker) {

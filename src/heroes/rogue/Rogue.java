@@ -12,6 +12,8 @@ public class Rogue extends Player {
 
     public Rogue(final int N, final int M, final Map map) {
         super("R", map, new RogueAbilities(), N, M);
+        this.setHp(startHp);
+
     }
 
     public void isAttackedBy(Pyromancer attacker) {

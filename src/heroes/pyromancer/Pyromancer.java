@@ -11,6 +11,7 @@ public class Pyromancer extends Player {
 
     public Pyromancer(final int N, final int M, final Map map) {
         super("P", map, new PyromancerAbilities(), N, M);
+        this.setHp(startHp);
     }
 
     public void isAttackedBy(Pyromancer attacker) {

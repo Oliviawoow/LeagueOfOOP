@@ -45,7 +45,7 @@ public class Pyromancer extends Player {
     }
 
     public void isAttackedBy(Rogue attacker) {
-        if (attacker.getAbilities().terrainModifier() != 0)
+        if (attacker.getAbilities().terrainModifier(attacker.getMap(), attacker.getNPosition(), attacker.getMPosition()) != 0)
         int damageBackstab =Math.round(attacker.getAbilities().ability1(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));

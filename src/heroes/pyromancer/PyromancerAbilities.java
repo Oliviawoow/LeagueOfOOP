@@ -65,12 +65,15 @@ public class PyromancerAbilities extends PlayerAbilities {
     public final float abilityOverTime(final Pyromancer enemy) {
         return dmgPerRound * this.getSecondAbilityClassModifier(enemy);
     }
+
     public final float abilityOverTime(final Knight enemy) {
         return dmgPerRound * this.getSecondAbilityClassModifier(enemy);
     }
+
     public final float abilityOverTime(final Rogue enemy) {
         return dmgPerRound * this.getSecondAbilityClassModifier(enemy);
     }
+
     public final float abilityOverTime(final Wizard enemy) {
         return dmgPerRound * this.getSecondAbilityClassModifier(enemy);
     }
@@ -78,12 +81,15 @@ public class PyromancerAbilities extends PlayerAbilities {
     public final float ability1(final Pyromancer enemy) {
         return dmg1 * this.getFirstAbilityClassModifier(enemy);
     }
+
     public final float ability1(final Knight enemy) {
         return dmg1 * this.getFirstAbilityClassModifier(enemy);
     }
+
     public final float ability1(final Rogue enemy) {
         return dmg1 * this.getFirstAbilityClassModifier(enemy);
     }
+
     public final float ability1(final Wizard enemy) {
         return dmg1 * this.getFirstAbilityClassModifier(enemy);
     }
@@ -91,12 +97,15 @@ public class PyromancerAbilities extends PlayerAbilities {
     public final float ability2(final Pyromancer enemy) {
         return dmg2 * this.getSecondAbilityClassModifier(enemy);
     }
+
     public final float ability2(final Knight enemy) {
         return dmg2 * this.getSecondAbilityClassModifier(enemy);
     }
+
     public final float ability2(final Rogue enemy) {
         return dmg2 * this.getSecondAbilityClassModifier(enemy);
     }
+
     public final float ability2(final Wizard enemy) {
         return dmg2 * this.getSecondAbilityClassModifier(enemy);
     }

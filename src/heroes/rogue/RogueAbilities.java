@@ -93,6 +93,22 @@ public class RogueAbilities extends PlayerAbilities {
         return dmg2 * this.getSecondAbilityClassModifier(enemy);
     }
 
+    public final float abilityOverTime(final Pyromancer enemy) {
+        return dmgPerRound * this.getSecondAbilityClassModifier(enemy);
+    }
+
+    public final float abilityOverTime(final Knight enemy) {
+        return dmgPerRound * this.getSecondAbilityClassModifier(enemy);
+    }
+
+    public final float abilityOverTime(final Rogue enemy) {
+        return dmgPerRound * this.getSecondAbilityClassModifier(enemy);
+    }
+
+    public final float abilityOverTime(final Wizard enemy) {
+        return dmgPerRound * this.getSecondAbilityClassModifier(enemy);
+    }
+
     public final float getDmg1() {
         return dmg1;
     }

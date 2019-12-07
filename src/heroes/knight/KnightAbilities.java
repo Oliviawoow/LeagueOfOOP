@@ -9,6 +9,7 @@ import main.Map;
 public class KnightAbilities extends PlayerAbilities {
     private int dmg1 = 200;
     private int dmg2 = 100;
+    private int dmgPerRound = 0;
 
     public KnightAbilities() {
         super();
@@ -89,6 +90,22 @@ public class KnightAbilities extends PlayerAbilities {
 
     public final float ability2(final Wizard enemy) {
         return dmg2 * this.getSecondAbilityClassModifier(enemy);
+    }
+
+    public final float abilityOverTime(final Pyromancer enemy) {
+        return dmgPerRound * this.getSecondAbilityClassModifier(enemy);
+    }
+
+    public final float abilityOverTime(final Knight enemy) {
+        return dmgPerRound * this.getSecondAbilityClassModifier(enemy);
+    }
+
+    public final float abilityOverTime(final Rogue enemy) {
+        return dmgPerRound * this.getSecondAbilityClassModifier(enemy);
+    }
+
+    public final float abilityOverTime(final Wizard enemy) {
+        return dmgPerRound * this.getSecondAbilityClassModifier(enemy);
     }
 
     public final float getDmg1() {

@@ -32,7 +32,7 @@ public class Main {
             Player[] player = new Player[nrPlayers];
             for (int i = 0; i < nrPlayers; i++) {
                 player[i] = PlayerGenerator.instance.generatePlayer(read.nextWord(),
-                        read.nextInt(), read.nextInt());
+                        read.nextInt(), read.nextInt(), Map map);
             }
 
             /*creere de runde*/

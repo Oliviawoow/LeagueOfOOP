@@ -1,6 +1,5 @@
 package heroes.knight;
 
-import heroes.Player;
 import heroes.PlayerAbilities;
 import heroes.pyromancer.Pyromancer;
 import heroes.wizard.Wizard;
@@ -18,12 +17,15 @@ public class KnightAbilities extends PlayerAbilities {
     public final float getFirstAbilityClassModifier (final Pyromancer enemy) {
         return 1.1f;
     }
+
     public final float getFirstAbilityClassModifier (final Knight enemy) {
         return 0f;
     }
+
     public final float getFirstAbilityClassModifier (final Wizard enemy) {
         return 0.8f;
     }
+
     public final float getFirstAbilityClassModifier (final Rogue enemy) {
         return 1.15f;
     }
@@ -31,12 +33,15 @@ public class KnightAbilities extends PlayerAbilities {
     public final float getSecondAbilityClassModifier (final Pyromancer enemy) {
         return 0.9f;
     }
+
     public final float getSecondAbilityClassModifier (final Knight enemy) {
         return 1.2f;
     }
+
     public final float getSecondAbilityClassModifier (final Wizard enemy) {
         return 1.05f;
     }
+
     public final float getSecondAbilityClassModifier (final Rogue enemy) {
         return 0.8f;
     }
@@ -44,7 +49,6 @@ public class KnightAbilities extends PlayerAbilities {
     public final void dmgUp(int nrLv) {
         this.dmg1 = this.dmg1 + 30 * nrLv;
         this.dmg2 =this.dmg2 + 40 * nrLv;
-
     }
 
     public final float terrainModifier(final Map map, final int NPosition, final int MPosition) {
@@ -58,27 +62,33 @@ public class KnightAbilities extends PlayerAbilities {
     public final float ability1(final Pyromancer enemy) {
         return dmg1 * this.getFirstAbilityClassModifier(enemy);
     }
+
     public final float ability1(final Knight enemy) {
-        return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
+        return dmg1 * this.getFirstAbilityClassModifier(enemy);
     }
+
     public final float ability1(final Rogue enemy) {
-        return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
+        return dmg1 * this.getFirstAbilityClassModifier(enemy);
     }
+
     public final float ability1(final Wizard enemy) {
-        return Math.round(dmg1 * this.getFirstAbilityClassModifier(enemy));
+        return dmg1 * this.getFirstAbilityClassModifier(enemy);
     }
 
     public final float ability2(final Pyromancer enemy) {
         return dmg2 * this.getSecondAbilityClassModifier(enemy);
     }
+
     public final float ability2(final Knight enemy) {
-        return Math.round(dmg2 * this.getSecondAbilityClassModifier(enemy));
+        return dmg2 * this.getSecondAbilityClassModifier(enemy);
     }
+
     public final float ability2(final Rogue enemy) {
-        return Math.round(dmg2 * this.getSecondAbilityClassModifier(enemy));
+        return dmg2 * this.getSecondAbilityClassModifier(enemy);
     }
+
     public final float ability2(final Wizard enemy) {
-        return Math.round(dmg2 * this.getSecondAbilityClassModifier(enemy));
+        return dmg2 * this.getSecondAbilityClassModifier(enemy);
     }
 
     public final float getDmg1() {
@@ -90,10 +100,6 @@ public class KnightAbilities extends PlayerAbilities {
     }
 
     public final int getDmgPerRound() {
-        return 0;
-    }
-
-    public final int affectedRounds() {
         return 0;
     }
 }

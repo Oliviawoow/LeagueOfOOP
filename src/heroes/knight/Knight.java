@@ -1,13 +1,9 @@
 package heroes.knight;
 
 import heroes.Player;
-import heroes.PlayerAbilities;
 import heroes.pyromancer.Pyromancer;
-import heroes.pyromancer.PyromancerAbilities;
 import heroes.rogue.Rogue;
-import heroes.rogue.RogueAbilities;
 import heroes.wizard.Wizard;
-import heroes.wizard.WizardAbilities;
 import main.Map;
 
 public class Knight extends Player {
@@ -24,43 +20,70 @@ public class Knight extends Player {
         int damageIgnite = Math.round(attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
+        this.setRoundDmg(Math.round(attacker.getAbilities().abilityOverTime(this)
+                * attacker.getAbilities().terrainModifier(attacker.getMap(),
+                attacker.getNPosition(), attacker.getMPosition())));
+        this.setDmgOverTime(2);
         int totalDmg = damageFireblast + damageIgnite;
         this.takeDmg(totalDmg);
     }
 
     public void isAttackedBy(Knight attacker) {
-        int damageExecute =Math.round(attacker.getAbilities().ability1(this)
-                * attacker.getAbilities().terrainModifier(attacker.getMap(),
-                attacker.getNPosition(), attacker.getMPosition()));
-        int damageSlam =Math.round(attacker.getAbilities().ability2(this)
-                * attacker.getAbilities().terrainModifier(attacker.getMap(),
-                attacker.getNPosition(), attacker.getMPosition()));
-        int totalDmg = damageExecute + damageSlam;
         if (this.getHp() <= this.startHp * Math.min(0.4f, 0.2f + 0.1f * getLvUp())){
             this.setDead();
         } else {
+            int damageExecute =Math.round(attacker.getAbilities().ability1(this)
+                    * attacker.getAbilities().terrainModifier(attacker.getMap(),
+                    attacker.getNPosition(), attacker.getMPosition()));
+            int damageSlam =Math.round(attacker.getAbilities().ability2(this)
+                    * attacker.getAbilities().terrainModifier(attacker.getMap(),
+                    attacker.getNPosition(), attacker.getMPosition()));
+            this.setRoundStun();
+            this.setRoundDmg(0);
+            this.setDmgOverTime(1);
+            int totalDmg = damageExecute + damageSlam;
             this.takeDmg(totalDmg);
         }
     }
 
     public void isAttackedBy(Rogue attacker) {
+        int statusEffectsModifier = 1;
+        float criticalModifier = 1f;
+
+        if (attacker.getAbilities().terrainModifier(attacker.getMap(), attacker.getNPosition(), attacker.getMPosition())
+                != 0) {
+            statusEffectsModifier = 2;
+            if (attacker.getBattles() % 3 == 0) {
+                criticalModifier = 1.5f;
+            }
+        }
+        attacker.incrementBattles();
         int damageBackstab =Math.round(attacker.getAbilities().ability1(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
-                attacker.getNPosition(), attacker.getMPosition()));
+                attacker.getNPosition(), attacker.getMPosition()) * criticalModifier);
         int damageParalysis =Math.round(attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
+        this.setRoundStun();
+        this.setRoundDmg(Math.round(attacker.getAbilities().ability2(this)
+                * attacker.getAbilities().terrainModifier(attacker.getMap(),
+                attacker.getNPosition(), attacker.getMPosition())));
+        this.setDmgOverTime(3 * statusEffectsModifier);
         int totalDmg = damageBackstab + damageParalysis;
+        this.takeDmg(totalDmg);
     }
 
     public void isAttackedBy(Wizard attacker) {
-        int damageDrain = Math.round(attacker.getAbilities().ability1(this)
+        float damageDrain = attacker.getAbilities().ability1(this)
+                * attacker.getAbilities().terrainModifier(attacker.getMap(),
+                attacker.getNPosition(), attacker.getMPosition());
+        damageDrain = damageDrain * Math.min(0.3f * this.startHp, this.getHp());
+        float damageDeflect =Math.round(attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
-        int damageDeflect =Math.round(attacker.getAbilities().ability2(this)
-                * attacker.getAbilities().terrainModifier(attacker.getMap(),
-                attacker.getNPosition(), attacker.getMPosition()));
-        int totalDmg = damageDeflect + damageDrain;
+        damageDeflect = damageDeflect * this.dmgNoModifier();
+        int totalDmg = Math.round(damageDeflect) + Math.round(damageDrain);
+        this.takeDmg(totalDmg);
     }
 
     public void attackPlayer(Player enemy) {
@@ -75,9 +98,4 @@ public class Knight extends Player {
             this.getAbilities().dmgUp(this.getLvUp());
         }
     }
-
-    public final boolean roundEffect() {
-        return false;
-    }
-
 }

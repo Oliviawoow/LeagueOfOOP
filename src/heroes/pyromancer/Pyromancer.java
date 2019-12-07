@@ -45,12 +45,14 @@ public class Pyromancer extends Player {
     }
 
     public void isAttackedBy(Rogue attacker) {
+        if (attacker.getAbilities().terrainModifier() != 0)
         int damageBackstab =Math.round(attacker.getAbilities().ability1(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
         int damageParalysis =Math.round(attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
+
         int totalDmg = damageBackstab + damageParalysis;
     }
 
@@ -62,8 +64,9 @@ public class Pyromancer extends Player {
         float damageDeflect =Math.round(attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
-        int damageDeflecter = ;
-        int totalDmg = damageDeflect + damageDrain;
+        damageDeflect = damageDeflect * this.dmgNoModifier();
+        int totalDmg = Math.round(damageDeflect) + Math.round(damageDrain);
+        this.takeDmg(totalDmg);
     }
 
     public void attackPlayer(Player enemy) {
@@ -83,13 +86,6 @@ public class Pyromancer extends Player {
         return false;
     }
 
-    public final int dmgNoModifier() {
-        return Math.round(this.getAbilities().getDmg1()
-                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()))
-                + Math.round(this.getAbilities().getDmg2()
-                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()))
-                + Math.round(this.getAbilities().getDmgPerRound()
-                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()));
-    }
+
 
 }

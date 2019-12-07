@@ -10,6 +10,7 @@ import main.Map;
 public class RogueAbilities extends PlayerAbilities {
     private int dmg1 = 200;
     private int dmg2 = 40;
+    private int dmgPerRound = 40;
 
     public RogueAbilities() {
         super();
@@ -43,7 +44,8 @@ public class RogueAbilities extends PlayerAbilities {
 
     public final void dmgUp(int nrLv) {
         this.dmg1 = this.dmg1 + 20 * nrLv;
-        this.dmg2 =this.dmg2 + 10 * nrLv;
+        this.dmg2 = this.dmg2 + 10 * nrLv;
+        this.dmgPerRound = this.dmgPerRound + 10 * nrLv;
     }
 
     public final float terrainModifier(final Map map, final int NPosition, final int MPosition) {
@@ -89,11 +91,11 @@ public class RogueAbilities extends PlayerAbilities {
     }
 
     public final int getDmgPerRound() {
-        return 0;
+        return dmgPerRound;
     }
 
     public final int affectedRounds() {
-        return 0;
+        return 3;
     }
 
    /* public final int getDmgMod(final Player Enemy, final Map map) {

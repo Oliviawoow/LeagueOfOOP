@@ -45,6 +45,8 @@ public class WizardAbilities extends PlayerAbilities {
         this.dmg1 = this.dmg1 + 0.05f * nrLv;
         if (this.dmg2 < 0.7f) {
             this.dmg2 = this.dmg2 + 0.02f * nrLv;
+        } else {
+            this.dmg2 = 0.7f;
         }
     }
 

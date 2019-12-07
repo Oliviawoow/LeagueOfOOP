@@ -113,6 +113,14 @@ public abstract class Player {
     /*calculeaza damage-ul si ii scade eroului din viata*/
     //public abstract void dmgTake(Player Enemy, Map map);
     /*damage nemodificat*/
+    public final int dmgNoModifier() {
+        return Math.round(this.getAbilities().getDmg1()
+                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()))
+                + Math.round(this.getAbilities().getDmg2()
+                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()))
+                + Math.round(this.getAbilities().getDmgPerRound()
+                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()));
+    }
     //public abstract int dmgNotModTake(Player Enemy, Map map);
 
     public final void direction(final char dir) {

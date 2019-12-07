@@ -18,12 +18,15 @@ public class PyromancerAbilities extends PlayerAbilities {
     public final float getFirstAbilityClassModifier (final Pyromancer enemy) {
         return 0.9f;
     }
+
     public final float getFirstAbilityClassModifier (final Knight enemy) {
         return 1.2f;
     }
+
     public final float getFirstAbilityClassModifier (final Wizard enemy) {
         return 1.05f;
     }
+
     public final float getFirstAbilityClassModifier (final Rogue enemy) {
         return 0.8f;
     }
@@ -31,12 +34,15 @@ public class PyromancerAbilities extends PlayerAbilities {
     public final float getSecondAbilityClassModifier (final Pyromancer enemy) {
         return 0.9f;
     }
+
     public final float getSecondAbilityClassModifier (final Knight enemy) {
         return 1.2f;
     }
+
     public final float getSecondAbilityClassModifier (final Wizard enemy) {
         return 1.05f;
     }
+
     public final float getSecondAbilityClassModifier (final Rogue enemy) {
         return 0.8f;
     }

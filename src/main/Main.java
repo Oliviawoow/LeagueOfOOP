@@ -45,7 +45,7 @@ public class Main {
             /*scrierea in fisier*/
             try {
                 FileWriter write = new FileWriter(fileOut);
-                for (int i = 0; i < nrPlayers - 1; i++) {
+                for (int i = 0; i < nrPlayers; i++) {
                     if (player[i].isDead()) {
                         write.writeWord(player[i].getHeroType() + " " + "dead");
                         write.writeNewLine();
@@ -53,18 +53,9 @@ public class Main {
                         write.writeWord(player[i].getHeroType() + " " + player[i].getLv()
                                 + " " + player[i].getXp() + " "
                                 + player[i].getHp() + " " + player[i].getNPosition()
-                                + " " + player[i].getNPosition());
+                                + " " + player[i].getMPosition());
                         write.writeNewLine();
                     }
-                }
-                int i = nrPlayers - 1;
-                if (player[i].isDead()) {
-                    write.writeWord(player[i].getHeroType() + " " + "dead");
-                } else {
-                    write.writeWord(player[i].getHeroType() + " " + player[i].getLv()
-                            + " " + player[i].getXp() + " "
-                            + player[i].getHp() + " " + player[i].getNPosition()
-                            + " " + player[i].getMPosition());
                 }
                 write.close();
             } catch (IOException e) {

@@ -8,7 +8,7 @@ import main.Map;
 
 public class Rogue extends Player {
     protected int startHp = 600;
-    private int battles = 1;
+    private int battles = 0;
 
     public Rogue(final int N, final int M, final Map map) {
         super("R", map, new RogueAbilities(), N, M);

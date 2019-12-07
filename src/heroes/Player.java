@@ -170,19 +170,19 @@ public abstract class Player {
     /*miscarea eroului*/
     public final void direction(final char dir) {
         if (dir == 'U') {
-            this.NPosition = this.NPosition --;
+            this.NPosition--;
             return;
         }
         if (dir == 'D') {
-            this.NPosition = this.NPosition ++;
+            this.NPosition++;
             return;
         }
         if (dir == 'L') {
-            this.MPosition = this.MPosition --;
+            this.MPosition--;
             return;
         }
         if (dir == 'R') {
-            this.MPosition = this.MPosition ++;
+            this.MPosition++;
             return;
         }
         if (dir == '_') {

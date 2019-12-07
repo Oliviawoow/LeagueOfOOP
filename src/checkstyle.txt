@@ -79,10 +79,6 @@ Starting audit...
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/Player.java:147:31: Parameter dmg should be final. [FinalParameters]
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/Player.java:165: Line is longer than 100 characters (found 111). [LineLength]
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/Player.java:167: Line is longer than 100 characters (found 112). [LineLength]
-[ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/Player.java:173:44: '--' is preceded with whitespace. [NoWhitespaceBefore]
-[ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/Player.java:177:44: '++' is preceded with whitespace. [NoWhitespaceBefore]
-[ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/Player.java:181:44: '--' is preceded with whitespace. [NoWhitespaceBefore]
-[ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/Player.java:185:44: '++' is preceded with whitespace. [NoWhitespaceBefore]
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/PlayerAbilities.java:15:56: '(' is preceded with whitespace. [MethodParamPad]
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/PlayerAbilities.java:15:57: Redundant 'final' modifier. [RedundantModifier]
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/PlayerAbilities.java:16:56: '(' is preceded with whitespace. [MethodParamPad]
@@ -226,8 +222,8 @@ Starting audit...
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/rogue/RogueAbilities.java:56:86: Name 'MPosition' must match pattern '^[a-z][a-zA-Z0-9]*$'. [ParameterName]
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/rogue/RogueAbilities.java:59:20: '1.15f' is a magic number. [MagicNumber]
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/Round.java:30: Line is longer than 100 characters (found 101). [LineLength]
-[ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/Round.java:35:72: '{' is not preceded with whitespace. [WhitespaceAround]
-[ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/Round.java:44:48: '++' is preceded with whitespace. [NoWhitespaceBefore]
+[ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/Round.java:36:15: 'if' is not followed by whitespace. [WhitespaceAround]
+[ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/Round.java:45:48: '++' is preceded with whitespace. [NoWhitespaceBefore]
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/wizard/Wizard.java:10:29: '400' is a magic number. [MagicNumber]
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/wizard/Wizard.java:12:29: Name 'N' must match pattern '^[a-z][a-zA-Z0-9]*$'. [ParameterName]
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/wizard/Wizard.java:12:42: Name 'M' must match pattern '^[a-z][a-zA-Z0-9]*$'. [ParameterName]
@@ -290,4 +286,4 @@ Starting audit...
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/main/PlayerGenerator.java:18:63: Name 'N' must match pattern '^[a-z][a-zA-Z0-9]*$'. [ParameterName]
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/main/PlayerGenerator.java:18:76: Name 'M' must match pattern '^[a-z][a-zA-Z0-9]*$'. [ParameterName]
 Audit done.
-Checkstyle ends with 290 errors.
+Checkstyle ends with 286 errors.

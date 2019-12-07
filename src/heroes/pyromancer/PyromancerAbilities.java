@@ -59,7 +59,7 @@ public class PyromancerAbilities extends PlayerAbilities {
         if (type == 'V') {
             return 1.25f;
         }
-        return 0f;
+        return 1f;
     }
 
     public final float abilityOverTime(final Pyromancer enemy) {

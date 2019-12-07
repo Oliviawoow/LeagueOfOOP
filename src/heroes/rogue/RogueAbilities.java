@@ -58,7 +58,7 @@ public class RogueAbilities extends PlayerAbilities {
         if (type == 'W') {
             return 1.15f;
         }
-        return 0f;
+        return 1f;
     }
 
     public final float ability1(final Pyromancer enemy) {

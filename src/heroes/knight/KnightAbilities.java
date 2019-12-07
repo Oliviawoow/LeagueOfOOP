@@ -57,7 +57,7 @@ public class KnightAbilities extends PlayerAbilities {
         if (type == 'L') {
             return 1.15f;
         }
-        return 0f;
+        return 1f;
     }
 
     public final float ability1(final Pyromancer enemy) {

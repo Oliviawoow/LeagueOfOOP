@@ -61,7 +61,7 @@ public class WizardAbilities extends PlayerAbilities {
         if (type == 'D') {
             return 1.1f;
         }
-        return 0f;
+        return 1f;
     }
 
     public final float ability1(final Pyromancer enemy) {

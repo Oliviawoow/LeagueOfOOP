@@ -40,7 +40,7 @@ public class Main {
             int nrRounds = read.nextInt();
             while (nrRounds != 0) {
                 String directions = read.nextWord();
-                round.gameRounds(player, nrPlayers, map, directions);
+                round.gameRounds(player, nrPlayers, directions);
                 nrRounds--;
             }
             /*scrierea in fisier*/

@@ -23,7 +23,7 @@ public class Round {
         }
      }
 
-    public final void gameRounds(final Player[] player, final int nrPlayer, final Map map, final String direction) {
+    public final void gameRounds(final Player[] player, final int nrPlayer, final String direction) {
         /*misca eroul*/
         for (int i = 0; i < nrPlayer; i++) {
             if (!player[i].getRoundStun() && !player[i].isDead()) {

@@ -5,17 +5,18 @@ import heroes.knight.Knight;
 import heroes.rogue.Rogue;
 import heroes.pyromancer.Pyromancer;
 import main.Map;
+import main.Constants;
 
-public class Wizard extends Player {
-    protected int startHp = 400;
+public final class Wizard extends Player {
+    protected int startHp = Constants.START_HP_WIZARD;
 
-    public Wizard(final int N, final int M, final Map map) {
-        super("W", map, new WizardAbilities(), N, M);
+    public Wizard(final int n, final int m, final Map map) {
+        super("W", map, new WizardAbilities(), n, m);
         this.setHp(startHp);
 
     }
 
-    public void isAttackedBy(Pyromancer attacker) {
+    public void isAttackedBy(final Pyromancer attacker) {
         int damageFireblast = Math.round(attacker.getAbilities().ability1(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
@@ -31,8 +32,9 @@ public class Wizard extends Player {
         this.takeDmg(totalDmg);
     }
 
-    public void isAttackedBy(Knight attacker) {
-        if (this.getHp() <= this.startHp * Math.min(0.4f, 0.2f + 0.01f * attacker.getLvUp())){
+    public void isAttackedBy(final Knight attacker) {
+        if (this.getHp() <= this.startHp * Math.min(Constants.HP_MAX_LIM_KNIGHT,
+                Constants.HP_MIN_LIM_KNIGHT + Constants.HP_PER_LEVEL_KNIGHT * attacker.getLvUp())) {
             this.setHp(0);
         } else {
             int damageExecute = Math.round(attacker.getAbilities().ability1(this)
@@ -49,14 +51,15 @@ public class Wizard extends Player {
         }
     }
 
-    public void isAttackedBy(Rogue attacker) {
+    public void isAttackedBy(final Rogue attacker) {
         int statusEffectsModifier = 1;
         float criticalModifier = 1f;
 
-        if (attacker.getAbilities().terrainModifier(attacker.getMap(), attacker.getNPosition(), attacker.getMPosition()) > 1f) {
+        if (attacker.getAbilities().terrainModifier(attacker.getMap(), attacker.getNPosition(),
+                attacker.getMPosition()) > 1f) {
             statusEffectsModifier = 2;
-            if (attacker.getBattles() % 3 == 0) {
-                criticalModifier = 1.5f;
+            if (attacker.getBattles() % Constants.DIV_ROGUE == 0) {
+                criticalModifier = Constants.CRITICAL_MODIFIER;
             }
         }
         attacker.incrementBattles();
@@ -68,16 +71,16 @@ public class Wizard extends Player {
                 attacker.getNPosition(), attacker.getMPosition()));
         this.setRoundStun(true);
         this.setRoundDmg(damageParalysis);
-        this.setDmgOverTime(3 * statusEffectsModifier);
+        this.setDmgOverTime(Constants.DIV_ROGUE * statusEffectsModifier);
         int totalDmg = damageBackstab + damageParalysis;
         this.takeDmg(totalDmg);
     }
 
-    public void isAttackedBy(Wizard attacker) {
+    public void isAttackedBy(final Wizard attacker) {
         float damageDrain = attacker.getAbilities().ability1(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition());
-        damageDrain = damageDrain * Math.min(0.3f * this.startHp, this.getHp());
+        damageDrain = damageDrain * Math.min(Constants.HP_BAZA_WIZARD * this.startHp, this.getHp());
         float damageDeflect = attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition());
@@ -85,13 +88,13 @@ public class Wizard extends Player {
         int totalDmg = Math.round(damageDeflect) + Math.round(damageDrain);
         this.takeDmg(totalDmg);
     }
-    public void attackPlayer(Player enemy) {
+    public void attackPlayer(final Player enemy) {
         enemy.isAttackedBy(this);
     }
 
-    public final void lvUp() {
+    public void lvUp() {
         if (this.getLvUp() > 0  && this.getHp() > 0) {
-            this.startHp = this.startHp + 30 * this.getLvUp();
+            this.startHp = this.startHp + Constants.LEVEL_UP_WIZARD * this.getLvUp();
             this.setHp(this.startHp);
             this.setLv(this.getLv() + this.getLvUp());
             this.getAbilities().dmgUp(this.getLvUp());

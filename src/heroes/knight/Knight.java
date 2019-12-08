@@ -7,7 +7,7 @@ import heroes.wizard.Wizard;
 import main.Map;
 import main.Constants;
 
-public class Knight extends Player {
+public final class Knight extends Player {
     protected int startHp = Constants.START_HP_KNIGHT;
 
     public Knight(final int n, final int m, final Map map) {
@@ -93,7 +93,7 @@ public class Knight extends Player {
         enemy.isAttackedBy(this);
     }
 
-    public final void lvUp() {
+    public void lvUp() {
         if (this.getLvUp() > 0  && this.getHp() > 0) {
             this.startHp = this.startHp + Constants.LEVEL_UP_KNIGHT * this.getLvUp();
             this.setHp(this.startHp);

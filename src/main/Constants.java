@@ -26,6 +26,9 @@ public final class Constants {
     public static final int LV_DMG1 = 30;
     public static final int LV_DMG2 = 40;
     public static final float LAND_MOD = 1.15F;
+    public static final int START_HP_PYRO = 500;
+    public static final int LEVEL_UP_PYRO = 50;
+
 
 
 

@@ -253,7 +253,6 @@ Starting audit...
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/wizard/Wizard.java:79:5: Class 'Wizard' looks like designed for extension (can be subclassed), but the method 'isAttackedBy' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'Wizard' final or making the method 'isAttackedBy' static/final/abstract/empty, or adding allowed annotation for the method. [DesignForExtension]
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/wizard/Wizard.java:79:30: Parameter attacker should be final. [FinalParameters]
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/wizard/Wizard.java:83:46: '0.3f' is a magic number. [MagicNumber]
-[ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/wizard/Wizard.java:84:30: '=' is not followed by whitespace. [WhitespaceAround]
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/wizard/Wizard.java:91:5: Class 'Wizard' looks like designed for extension (can be subclassed), but the method 'attackPlayer' does not have javadoc that explains how to do that safely. If class is not designed for extension consider making the class 'Wizard' final or making the method 'attackPlayer' static/final/abstract/empty, or adding allowed annotation for the method. [DesignForExtension]
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/wizard/Wizard.java:91:30: Parameter enemy should be final. [FinalParameters]
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/heroes/wizard/Wizard.java:97:43: '30' is a magic number. [MagicNumber]
@@ -291,4 +290,4 @@ Starting audit...
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/main/PlayerGenerator.java:18:63: Name 'N' must match pattern '^[a-z][a-zA-Z0-9]*$'. [ParameterName]
 [ERROR] /mnt/d/Downloads/poo/LeagueOfOOP/src/main/PlayerGenerator.java:18:76: Name 'M' must match pattern '^[a-z][a-zA-Z0-9]*$'. [ParameterName]
 Audit done.
-Checkstyle ends with 291 errors.
+Checkstyle ends with 290 errors.

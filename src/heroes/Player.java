@@ -5,12 +5,13 @@ import heroes.pyromancer.Pyromancer;
 import heroes.rogue.Rogue;
 import heroes.wizard.Wizard;
 import main.Map;
+import main.Constants;
 
 /*clasa heroes.Player contine metodele necesare pentru functionarea tuturor eroilor*/
 public abstract class Player {
     private String heroType;
-    private int NPosition;
-    private int MPosition;
+    private int nPosition;
+    private int mPosition;
     private int startHp;
     private int hp;
     private int xp;
@@ -22,22 +23,21 @@ public abstract class Player {
     private int dmgOverTime;
     private boolean battled = false;
 
-
-    public Player(final String heroType, final Map map, final PlayerAbilities abilities, final int NPosition, final int MPosition) {
-        this.MPosition = MPosition;
-        this.NPosition = NPosition;
+    public Player(final String heroType, final Map map, final PlayerAbilities abilities,
+                  final int nPosition, final int mPosition) {
+        this.mPosition = mPosition;
+        this.nPosition = nPosition;
         this.heroType = heroType;
         this.map = map;
         this.abilities = abilities;
     }
-
     /*getteri si setteri pentru eroii derivati din clasa Player*/
     public final int getNPosition() {
-        return this.NPosition;
+        return this.nPosition;
     }
 
     public final int getMPosition() {
-        return this.MPosition;
+        return this.mPosition;
     }
 
     public final int getStartHp() {
@@ -58,8 +58,8 @@ public abstract class Player {
 
     public final int getLvUp() {
         int nrLvUp = 0;
-        if (this.xp >= 250) {
-            nrLvUp = ((this.xp - 250) / 50 + 1) - this.lv;
+        if (this.xp >= Constants.XP_MIN) {
+            nrLvUp = ((this.xp - Constants.XP_MIN) / Constants.XP_IMPART + 1) - this.lv;
         }
         return nrLvUp;
     }
@@ -75,15 +75,15 @@ public abstract class Player {
         return heroType;
     }
 
-    public void setHp(int hp) {
+    public void setHp(final int hp) {
         this.hp = hp;
     }
 
-    public void setLv(int lv) {
+    public void setLv(final int lv) {
         this.lv = lv;
     }
 
-    public void setXp(int xp) {
+    public void setXp(final int xp) {
         this.xp = xp;
     }
 
@@ -91,7 +91,7 @@ public abstract class Player {
         return roundDmg;
     }
 
-    public void setRoundDmg(int roundDmg) {
+    public void setRoundDmg(final int roundDmg) {
         this.roundDmg = roundDmg;
     }
 
@@ -99,7 +99,7 @@ public abstract class Player {
         return dmgOverTime;
     }
 
-    public void setDmgOverTime(int dmgOverTime) {
+    public void setDmgOverTime(final int dmgOverTime) {
         this.dmgOverTime = dmgOverTime;
     }
 
@@ -107,13 +107,16 @@ public abstract class Player {
         return roundStun;
     }
 
-    public final void setRoundStun(boolean value) {
+    public final void setRoundStun(final boolean value) {
         roundStun = value;
     }
 
     public abstract void isAttackedBy(Pyromancer attacker);
+
     public abstract void isAttackedBy(Knight attacker);
+
     public abstract void isAttackedBy(Rogue attacker);
+
     public abstract void isAttackedBy(Wizard attacker);
 
     public abstract void attackPlayer(Player enemy);
@@ -121,12 +124,11 @@ public abstract class Player {
     public final PlayerAbilities getAbilities() {
         return this.abilities;
     }
-
     /*creste Xp dupa o lupta castigata*/
-    public final void setXpUp(Player Enemy) {
-        this.xp = this.xp + Math.max(0, 200 - (this.lv - Enemy.getLv()) * 40);
+    public final void setXpUp(final Player enemy) {
+        this.xp = this.xp + Math.max(0, Constants.XP_LV1 - (this.lv - enemy.getLv())
+                * Constants.XP_LV2);
     }
-
     /*verifica daca poate face level up si daca da modifica damage-ul si
      hp-ul initial si hp-ul curent redevine maxim*/
     public abstract void lvUp();
@@ -135,25 +137,23 @@ public abstract class Player {
         return this.battled;
     }
 
-    public final void setBattled(boolean battled) {
+    public final void setBattled(final boolean battled) {
         this.battled = battled;
     }
-
     /*verifica daca e mort si daca e adevarat il scoate de pe harta*/
     public final void setDead() {
         if (this.hp <= 0) {
             this.hp = 0;
-            this.NPosition = -1;
-            this.MPosition = -1;
+            this.nPosition = -1;
+            this.mPosition = -1;
             this.dmgOverTime = 0;
             this.roundDmg = 0;
             this.roundStun = false;
         }
     }
-
     /*scade viata curenta in functie de damage-ul primit si il seteaza mort in
      caz de viata lui ajunge sub 0*/
-    public final void takeDmg(int dmg) {
+    public final void takeDmg(final int dmg) {
         this.hp = this.hp - dmg;
     }
 
@@ -167,31 +167,31 @@ public abstract class Player {
             }
         }
     }
-
     /*damage nemodificat*/
     public final int dmgNoModifier() {
         return Math.round(this.getAbilities().getDmg1()
-                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()))
+                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(),
+                this.getMPosition()))
                 + Math.round(this.getAbilities().getDmg2()
-                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()));
+                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(),
+                this.getMPosition()));
     }
-
     /*miscarea eroului*/
     public final void direction(final char dir) {
         if (dir == 'U') {
-            this.NPosition--;
+            this.nPosition--;
             return;
         }
         if (dir == 'D') {
-            this.NPosition++;
+            this.nPosition++;
             return;
         }
         if (dir == 'L') {
-            this.MPosition--;
+            this.mPosition--;
             return;
         }
         if (dir == 'R') {
-            this.MPosition++;
+            this.mPosition++;
             return;
         }
         if (dir == '_') {

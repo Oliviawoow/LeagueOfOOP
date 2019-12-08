@@ -12,38 +12,36 @@ public abstract class PlayerAbilities {
 
     }
     /*modificator pentru prima si a 2a abilitate in functie de eroul inamic*/
-    public abstract float getFirstAbilityClassModifier (final Rogue enemy);
-    public abstract float getFirstAbilityClassModifier (final Knight enemy);
-    public abstract float getFirstAbilityClassModifier (final Pyromancer enemy);
-    public abstract float getFirstAbilityClassModifier (final Wizard enemy);
+    public abstract float getFirstAbilityClassModifier(Rogue enemy);
+    public abstract float getFirstAbilityClassModifier(Knight enemy);
+    public abstract float getFirstAbilityClassModifier(Pyromancer enemy);
+    public abstract float getFirstAbilityClassModifier(Wizard enemy);
 
-    public abstract float getSecondAbilityClassModifier (final Rogue enemy);
-    public abstract float getSecondAbilityClassModifier (final Knight enemy);
-    public abstract float getSecondAbilityClassModifier (final Pyromancer enemy);
-    public abstract float getSecondAbilityClassModifier (final Wizard enemy);
+    public abstract float getSecondAbilityClassModifier(Rogue enemy);
+    public abstract float getSecondAbilityClassModifier(Knight enemy);
+    public abstract float getSecondAbilityClassModifier(Pyromancer enemy);
+    public abstract float getSecondAbilityClassModifier(Wizard enemy);
 
-    public abstract float terrainModifier(final Map map, final int NPosition, final int MPosition);
+    public abstract float terrainModifier(Map map, int nPosition, int mPosition);
 
-    public abstract float abilityOverTime(final Pyromancer enemy);
-    public abstract float abilityOverTime(final Knight enemy);
-    public abstract float abilityOverTime(final Rogue enemy);
-    public abstract float abilityOverTime(final Wizard enemy);
+    public abstract float abilityOverTime(Pyromancer enemy);
+    public abstract float abilityOverTime(Knight enemy);
+    public abstract float abilityOverTime(Rogue enemy);
+    public abstract float abilityOverTime(Wizard enemy);
 
 
-    public abstract float ability1(final Pyromancer enemy);
-    public abstract float ability1(final Knight enemy);
-    public abstract float ability1(final Rogue enemy);
-    public abstract float ability1(final Wizard enemy);
+    public abstract float ability1(Pyromancer enemy);
+    public abstract float ability1(Knight enemy);
+    public abstract float ability1(Rogue enemy);
+    public abstract float ability1(Wizard enemy);
 
-    public abstract float ability2(final Pyromancer enemy);
-    public abstract float ability2(final Knight enemy);
-    public abstract float ability2(final Rogue enemy);
-    public abstract float ability2(final Wizard enemy);
-    
+    public abstract float ability2(Pyromancer enemy);
+    public abstract float ability2(Knight enemy);
+    public abstract float ability2(Rogue enemy);
+    public abstract float ability2(Wizard enemy);
     /*creste damage-ul in functie de level*/
     public abstract void dmgUp(int nrLv);
 
     public abstract float getDmg1();
     public abstract float getDmg2();
-    public abstract int getDmgPerRound();
 }

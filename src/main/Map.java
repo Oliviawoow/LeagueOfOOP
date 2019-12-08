@@ -3,12 +3,11 @@ package main;
 public class Map {
     private char[][] matrix;
     /*cream o matrice de dimensiune N x M care v-a contine tipurile de teren*/
-    
-    public Map(final int N, final int M, final String type) {
+    public Map(final int n, final int m, final String type) {
         int l = 0;
-        matrix = new char[N][M];
-        for (int i = 0; i < N; i++) {
-            for (int j = 0; j < M; j++) {
+        matrix = new char[n][m];
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
                 matrix[i][j] = type.charAt(l);
                 l++;
             }

@@ -67,23 +67,23 @@ public abstract class Player {
         return (this.hp <= 0);
     }
 
-    public Map getMap() {
+    public final Map getMap() {
         return map;
     }
 
-    public String getHeroType() {
+    public final String getHeroType() {
         return heroType;
     }
 
-    public void setHp(final int hp) {
+    public final void setHp(final int hp) {
         this.hp = hp;
     }
 
-    public void setLv(final int lv) {
+    public final void setLv(final int lv) {
         this.lv = lv;
     }
 
-    public void setXp(final int xp) {
+    public final void setXp(final int xp) {
         this.xp = xp;
     }
 
@@ -91,7 +91,7 @@ public abstract class Player {
         return roundDmg;
     }
 
-    public void setRoundDmg(final int roundDmg) {
+    public final void setRoundDmg(final int roundDmg) {
         this.roundDmg = roundDmg;
     }
 
@@ -99,7 +99,7 @@ public abstract class Player {
         return dmgOverTime;
     }
 
-    public void setDmgOverTime(final int dmgOverTime) {
+    public final void setDmgOverTime(final int dmgOverTime) {
         this.dmgOverTime = dmgOverTime;
     }
 

@@ -46,7 +46,6 @@ public final class Main {
             }
             /*scrierea in fisier*/
             try {
-//                FileWriter write = new FileWriter(fileOut);
                 for (int i = 0; i < nrPlayers; i++) {
                     if (player[i].isDead()) {
                         write.writeWord(player[i].getHeroType() + " " + "dead\n");

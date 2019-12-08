@@ -42,23 +42,6 @@ public class Main {
             while (nrRounds != 0) {
                 String directions = read.nextWord();
                 round.gameRounds(player, nrPlayers, directions);
-
-//                try {
-//                    write.writeWord("Round: " + (initialNoRounds - nrRounds) + "\n");
-//                    for (Player p : player) {
-//                        if (p.isDead()) {
-//                            write.writeWord(p.getHeroType() + " " + "dead\n");
-//                        } else {
-//                            write.writeWord(p.getHeroType() + " " + p.getLv()
-//                                    + " " + p.getXp() + " "
-//                                    + p.getHp() + " " + p.getNPosition()
-//                                    + " " + p.getMPosition() + "\n");
-//                        }
-//                    }
-//                    write.writeWord("-----------END ROUND--------\n");
-//                } catch (Exception e) {
-//                    e.printStackTrace();
-//                }
                 nrRounds--;
             }
             /*scrierea in fisier*/

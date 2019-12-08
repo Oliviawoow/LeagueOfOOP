@@ -20,7 +20,7 @@ public class KnightAbilities extends PlayerAbilities {
     }
 
     public final float getFirstAbilityClassModifier (final Knight enemy) {
-        return 0f;
+        return 1f;
     }
 
     public final float getFirstAbilityClassModifier (final Wizard enemy) {

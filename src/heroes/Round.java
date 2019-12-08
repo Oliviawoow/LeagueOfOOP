@@ -41,7 +41,7 @@ public class Round {
         for (int i = 0; i < nrPlayer - 1; i++) {
             for (int j = i + 1; j < nrPlayer; j ++) {
                 if (player[i].getNPosition() == player[j].getNPosition()
-                && player[i].getMPosition() == player[j].getMPosition()) {
+                && player[i].getMPosition() == player[j].getMPosition() && player[i].getMPosition() != -1) {
                     this.battle(player[i], player[j]);
                 }
             }

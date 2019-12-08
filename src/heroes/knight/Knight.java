@@ -34,12 +34,11 @@ public class Knight extends Player {
     public void isAttackedBy(Knight attacker) {
         if (this.getHp() <= this.startHp * Math.min(0.4f, 0.2f + 0.01f * attacker.getLvUp())){
             this.setHp(0);
-            this.setDead();
         } else {
-            int damageExecute =Math.round(attacker.getAbilities().ability1(this)
+            int damageExecute = Math.round(attacker.getAbilities().ability1(this)
                     * attacker.getAbilities().terrainModifier(attacker.getMap(),
                     attacker.getNPosition(), attacker.getMPosition()));
-            int damageSlam =Math.round(attacker.getAbilities().ability2(this)
+            int damageSlam = Math.round(attacker.getAbilities().ability2(this)
                     * attacker.getAbilities().terrainModifier(attacker.getMap(),
                     attacker.getNPosition(), attacker.getMPosition()));
             this.setRoundStun(true);
@@ -54,11 +53,9 @@ public class Knight extends Player {
         int statusEffectsModifier = 1;
         float criticalModifier = 1f;
 
-        if (attacker.getAbilities().terrainModifier(attacker.getMap(), attacker.getNPosition(), attacker.getMPosition())
-                != 0) {
+        if (attacker.getAbilities().terrainModifier(attacker.getMap(), attacker.getNPosition(), attacker.getMPosition()) > 1f) {
             statusEffectsModifier = 2;
-            if (attacker.getBattles() % 3 == 0 && attacker.getAbilities().terrainModifier(attacker.getMap(),
-                    attacker.getNPosition(), attacker.getMPosition()) > 1f) {
+            if (attacker.getBattles() % 3 == 0) {
                 criticalModifier = 1.5f;
             }
         }
@@ -94,7 +91,7 @@ public class Knight extends Player {
     }
 
     public final void lvUp() {
-        if (this.getLvUp() > 0) {
+        if (this.getLvUp() > 0  && this.getHp() > 0) {
             this.startHp = this.startHp + 80 * this.getLvUp();
             this.setHp(this.startHp);
             this.setLv(this.getLv() + this.getLvUp());

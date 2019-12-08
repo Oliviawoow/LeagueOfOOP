@@ -16,15 +16,10 @@ public class Round {
             if (player1.getHp() == 0) {
                 player2.setXpUp(player1);
                 player2.lvUp();
-            } else if (player2.getHp() == 0) {
+            }
+            if (player2.getHp() == 0) {
                 player1.setXpUp(player2);
                 player1.lvUp();
-            }
-            if (player1.getHp() <= 0) {
-                player1.setDead();
-            }
-            if (player2.getHp() <= 0) {
-                player2.setDead();
             }
         }
      }

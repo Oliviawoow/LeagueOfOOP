@@ -33,7 +33,8 @@ public class Rogue extends Player {
     }
 
     public void isAttackedBy(Knight attacker) {
-        if (this.getHp() <= this.startHp * Math.min(0.4f, 0.2f + 0.1f * getLvUp())){
+        if (this.getHp() <= this.startHp * Math.min(0.4f, 0.2f + 0.01f * attacker.getLvUp())){
+            this.setHp(0);
             this.setDead();
         } else {
             int damageExecute =Math.round(attacker.getAbilities().ability1(this)
@@ -57,7 +58,8 @@ public class Rogue extends Player {
         if (attacker.getAbilities().terrainModifier(attacker.getMap(), attacker.getNPosition(), attacker.getMPosition())
                 != 0) {
             statusEffectsModifier = 2;
-            if (attacker.getBattles() % 3 == 0) {
+            if (attacker.getBattles() % 3 == 0 && attacker.getAbilities().terrainModifier(attacker.getMap(),
+                    attacker.getNPosition(), attacker.getMPosition()) > 1f) {
                 criticalModifier = 1.5f;
             }
         }
@@ -84,8 +86,8 @@ public class Rogue extends Player {
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition());
         float critModifier = 1f;
-        if ((this.getBattled() && (battles - 1) % 3 == 0) || (!this.getBattled() && battles % 3 == 0)
-                && this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()) > 1f) {
+        if (((this.getBattled() && (battles - 1) % 3 == 0) || (!this.getBattled() && battles % 3 == 0))
+                && this.getAbilities().terrainModifier(attacker.getMap(), attacker.getNPosition(), attacker.getMPosition()) > 1f) {
             critModifier = 1.5f;
         }
         damageDeflect = damageDeflect

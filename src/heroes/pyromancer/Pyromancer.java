@@ -31,7 +31,8 @@ public class Pyromancer extends Player {
     }
 
     public void isAttackedBy(Knight attacker) {
-        if (this.getHp() <= this.startHp * Math.min(0.4f, 0.2f + 0.1f * getLvUp())){
+        if (this.getHp() <= this.startHp * Math.min(0.4f, 0.2f + 0.01f * attacker.getLvUp())){
+            this.setHp(0);
             this.setDead();
         } else {
             int damageExecute =Math.round(attacker.getAbilities().ability1(this)
@@ -55,7 +56,8 @@ public class Pyromancer extends Player {
         if (attacker.getAbilities().terrainModifier(attacker.getMap(), attacker.getNPosition(), attacker.getMPosition())
                 != 0) {
             statusEffectsModifier = 2;
-            if (attacker.getBattles() % 3 == 0) {
+            if (attacker.getBattles() % 3 == 0 && attacker.getAbilities().terrainModifier(attacker.getMap(),
+                    attacker.getNPosition(), attacker.getMPosition()) > 1f) {
                 criticalModifier = 1.5f;
             }
         }
@@ -78,9 +80,9 @@ public class Pyromancer extends Player {
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition());
         damageDrain = damageDrain * Math.min(0.3f * this.startHp, this.getHp());
-        float damageDeflect =Math.round(attacker.getAbilities().ability2(this)
+        float damageDeflect =attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
-                attacker.getNPosition(), attacker.getMPosition()));
+                attacker.getNPosition(), attacker.getMPosition());
         damageDeflect = damageDeflect * this.dmgNoModifier();
         int totalDmg = Math.round(damageDeflect) + Math.round(damageDrain);
         this.takeDmg(totalDmg);

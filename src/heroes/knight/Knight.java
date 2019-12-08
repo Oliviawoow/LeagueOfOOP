@@ -79,7 +79,7 @@ public class Knight extends Player {
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition());
         damageDrain = damageDrain * Math.min(0.3f * this.startHp, this.getHp());
-        float damageDeflect =Math.round(attacker.getAbilities().ability2(this)
+        float damageDeflect = Math.round(attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
         damageDeflect = damageDeflect * this.dmgNoModifier();

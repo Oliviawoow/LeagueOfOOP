@@ -60,26 +60,19 @@ public final class Constants {
     public static final float LAND_MOD_R = 1.15f;
     public static final int START_HP_WIZARD = 400;
     public static final int LEVEL_UP_WIZARD = 30;
-    public static final int WIZARD_DMG1 = 200;
-    public static final int WIZARD_DMG2 = 40;
-    public static final float W_MOD1 = 1.25f;
-    public static final float W_MOD2 = 0.9f;
-    public static final float W_MOD3 = 1.25f;
-    public static final float W_MOD4 = 1.2f;
-    public static final float W_MOD5 = 1.2f;
-    public static final float W_MOD6 = 0.8f;
-    public static final float W_MOD7 = 1.25f;
-    public static final float W_MOD8 = 0.9f;
-    public static final int LV_DMG1_W = 20;
-    public static final int LV_DMG2_W = 10;
-    public static final float LAND_MOD_W = 1.15f;
-
-
-
-
-
-
-
-
+    public static final float WIZARD_DMG1 = 0.2f;
+    public static final float WIZARD_DMG2 = 0.35f;
+    public static final float W_MOD1 = 0.9f;
+    public static final float W_MOD2 = 1.2f;
+    public static final float W_MOD3 = 1.05f;
+    public static final float W_MOD4 = 0.8f;
+    public static final float W_MOD5 = 1.3f;
+    public static final float W_MOD6 = 1.4f;
+    public static final float W_MOD7 = 0f;
+    public static final float W_MOD8 = 1.2f;
+    public static final float LV_DMG1_W = 0.05f;
+    public static final float LV_DMG2_W = 0.02f;
+    public static final float LV_DMG22_W = 0.7f;
+    public static final float LAND_MOD_W = 1.1f;
     private Constants() { }
 }

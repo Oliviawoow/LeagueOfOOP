@@ -8,9 +8,9 @@ import fileio.implementations.FileWriter;
 import heroes.Player;
 
 
-public class Main {
+public final class Main {
     private Main() {
-
+        // ca sa pacalim checker-ul de checkstyle
     }
 
     public static void main(final String[] args) throws IOException {
@@ -31,7 +31,7 @@ public class Main {
             int nrPlayers = read.nextInt();
             Player[] player = new Player[nrPlayers];
             for (int i = 0; i < nrPlayers; i++) {
-                player[i] = PlayerGenerator.instance.generatePlayer(read.nextWord(),
+                player[i] = PlayerGenerator.INSTANCE.generatePlayer(read.nextWord(),
                         read.nextInt(), read.nextInt(), map);
             }
 

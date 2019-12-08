@@ -5,59 +5,60 @@ import heroes.knight.Knight;
 import heroes.wizard.Wizard;
 import heroes.rogue.Rogue;
 import main.Map;
+import main.Constants;
 
 public class PyromancerAbilities extends PlayerAbilities {
-    private int dmg1 = 350;
-    private int dmg2 = 150;
-    private int dmgPerRound = 50;
+    private int dmg1 = Constants.PYRO_DMG1;
+    private int dmg2 = Constants.PYRO_DMG2;
+    private int dmgPerRound = Constants.PYRO_DMG3;
 
     PyromancerAbilities() {
         super();
     }
 
-    public final float getFirstAbilityClassModifier (final Pyromancer enemy) {
-        return 0.9f;
+    public final float getFirstAbilityClassModifier(final Pyromancer enemy) {
+        return Constants.P_MOD1;
     }
 
-    public final float getFirstAbilityClassModifier (final Knight enemy) {
-        return 1.2f;
+    public final float getFirstAbilityClassModifier(final Knight enemy) {
+        return Constants.P_MOD2;
     }
 
-    public final float getFirstAbilityClassModifier (final Wizard enemy) {
-        return 1.05f;
+    public final float getFirstAbilityClassModifier(final Wizard enemy) {
+        return Constants.P_MOD3;
     }
 
-    public final float getFirstAbilityClassModifier (final Rogue enemy) {
-        return 0.8f;
+    public final float getFirstAbilityClassModifier(final Rogue enemy) {
+        return Constants.P_MOD4;
     }
 
-    public final float getSecondAbilityClassModifier (final Pyromancer enemy) {
-        return 0.9f;
+    public final float getSecondAbilityClassModifier(final Pyromancer enemy) {
+        return Constants.P_MOD5;
     }
 
-    public final float getSecondAbilityClassModifier (final Knight enemy) {
-        return 1.2f;
+    public final float getSecondAbilityClassModifier(final Knight enemy) {
+        return Constants.P_MOD6;
     }
 
-    public final float getSecondAbilityClassModifier (final Wizard enemy) {
-        return 1.05f;
+    public final float getSecondAbilityClassModifier(final Wizard enemy) {
+        return Constants.P_MOD7;
     }
 
-    public final float getSecondAbilityClassModifier (final Rogue enemy) {
-        return 0.8f;
+    public final float getSecondAbilityClassModifier(final Rogue enemy) {
+        return Constants.P_MOD8;
     }
 
-    public final void dmgUp(int nrLv) {
-        this.dmg1 = this.dmg1 + 50 * nrLv;
-        this.dmg2 =this.dmg2 + 20 * nrLv;
-        this.dmgPerRound = this.dmgPerRound + 30 * nrLv;
+    public final void dmgUp(final int nrLv) {
+        this.dmg1 = this.dmg1 + Constants.LV_DMG1_P * nrLv;
+        this.dmg2 = this.dmg2 + Constants.LV_DMG2_P * nrLv;
+        this.dmgPerRound = this.dmgPerRound + Constants.LV_DMG3_P * nrLv;
 
     }
 
-    public final float terrainModifier(final Map map, final int NPosition, final int MPosition) {
-        char type = map.getType(NPosition, MPosition);
+    public final float terrainModifier(final Map map, final int nPosition, final int mPosition) {
+        char type = map.getType(nPosition, mPosition);
         if (type == 'V') {
-            return 1.25f;
+            return Constants.LAND_MOD_P;
         }
         return 1f;
     }

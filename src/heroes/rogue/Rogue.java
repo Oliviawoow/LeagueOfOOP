@@ -5,18 +5,19 @@ import heroes.knight.Knight;
 import heroes.pyromancer.Pyromancer;
 import heroes.wizard.Wizard;
 import main.Map;
+import main.Constants;
 
-public class Rogue extends Player {
-    protected int startHp = 600;
+public final class Rogue extends Player {
+    protected int startHp = Constants.START_HP_ROGUE;
     private int battles = 0;
 
-    public Rogue(final int N, final int M, final Map map) {
-        super("R", map, new RogueAbilities(), N, M);
+    public Rogue(final int n, final int m, final Map map) {
+        super("R", map, new RogueAbilities(), n, m);
         this.setHp(startHp);
 
     }
 
-    public void isAttackedBy(Pyromancer attacker) {
+    public void isAttackedBy(final Pyromancer attacker) {
         int damageFireblast = Math.round(attacker.getAbilities().ability1(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition()));
@@ -32,14 +33,15 @@ public class Rogue extends Player {
         this.takeDmg(totalDmg);
     }
 
-    public void isAttackedBy(Knight attacker) {
-        if (this.getHp() <= this.startHp * Math.min(0.4f, 0.2f + 0.01f * attacker.getLvUp())){
+    public void isAttackedBy(final Knight attacker) {
+        if (this.getHp() <= this.startHp * Math.min(Constants.HP_MAX_LIM_KNIGHT,
+                Constants.HP_MIN_LIM_KNIGHT + Constants.HP_PER_LEVEL_KNIGHT * attacker.getLvUp())) {
             this.setHp(0);
         } else {
-            int damageExecute =Math.round(attacker.getAbilities().ability1(this)
+            int damageExecute = Math.round(attacker.getAbilities().ability1(this)
                     * attacker.getAbilities().terrainModifier(attacker.getMap(),
                     attacker.getNPosition(), attacker.getMPosition()));
-            int damageSlam =Math.round(attacker.getAbilities().ability2(this)
+            int damageSlam = Math.round(attacker.getAbilities().ability2(this)
                     * attacker.getAbilities().terrainModifier(attacker.getMap(),
                     attacker.getNPosition(), attacker.getMPosition()));
             this.setRoundStun(true);
@@ -50,14 +52,15 @@ public class Rogue extends Player {
         }
     }
 
-    public void isAttackedBy(Rogue attacker) {
+    public void isAttackedBy(final Rogue attacker) {
         int statusEffectsModifier = 1;
         float criticalModifier = 1f;
 
-        if (attacker.getAbilities().terrainModifier(attacker.getMap(), attacker.getNPosition(), attacker.getMPosition()) > 1f) {
+        if (attacker.getAbilities().terrainModifier(attacker.getMap(),
+                attacker.getNPosition(), attacker.getMPosition()) > 1f) {
             statusEffectsModifier = 2;
-            if (attacker.getBattles() % 3 == 0) {
-                criticalModifier = 1.5f;
+            if (attacker.getBattles() % Constants.DIV_ROGUE == 0) {
+                criticalModifier = Constants.CRITICAL_MODIFIER;
             }
         }
         attacker.incrementBattles();
@@ -69,51 +72,55 @@ public class Rogue extends Player {
                 attacker.getNPosition(), attacker.getMPosition()));
         this.setRoundStun(true);
         this.setRoundDmg(damageParalysis);
-        this.setDmgOverTime(3 * statusEffectsModifier);
+        this.setDmgOverTime(Constants.DIV_ROGUE * statusEffectsModifier);
         int totalDmg = damageBackstab + damageParalysis;
         this.takeDmg(totalDmg);
     }
 
-    public void isAttackedBy(Wizard attacker) {
+    public void isAttackedBy(final Wizard attacker) {
         float damageDrain = attacker.getAbilities().ability1(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition());
-        damageDrain = damageDrain * Math.min(0.3f * this.startHp, this.getHp());
+        damageDrain = damageDrain * Math.min(Constants.HP_BAZA_WIZARD * this.startHp, this.getHp());
         float damageDeflect = attacker.getAbilities().ability2(this)
                 * attacker.getAbilities().terrainModifier(attacker.getMap(),
                 attacker.getNPosition(), attacker.getMPosition());
         float critModifier = 1f;
-        if (((this.getBattled() && (battles - 1) % 3 == 0) || (!this.getBattled() && battles % 3 == 0))
-                && this.getAbilities().terrainModifier(attacker.getMap(), attacker.getNPosition(), attacker.getMPosition()) > 1f) {
-            critModifier = 1.5f;
+        if (((this.getBattled() && (battles - 1) % Constants.DIV_ROGUE == 0)
+                || (!this.getBattled() && battles % Constants.DIV_ROGUE == 0))
+                && this.getAbilities().terrainModifier(attacker.getMap(),
+                attacker.getNPosition(), attacker.getMPosition()) > 1f) {
+            critModifier = Constants.CRITICAL_MODIFIER;
         }
         damageDeflect = damageDeflect
                 * (Math.round(this.getAbilities().getDmg1()
-                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition()) * critModifier)
+                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(),
+                this.getMPosition()) * critModifier)
                 + Math.round(this.getAbilities().getDmg2()
-                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(), this.getMPosition())));
+                * this.getAbilities().terrainModifier(this.getMap(), this.getNPosition(),
+                this.getMPosition())));
         int totalDmg = Math.round(damageDeflect) + Math.round(damageDrain);
         this.takeDmg(totalDmg);
     }
 
-    public void attackPlayer(Player enemy) {
+    public void attackPlayer(final Player enemy) {
         enemy.isAttackedBy(this);
     }
 
-    public final void lvUp() {
+    public void lvUp() {
         if (this.getLvUp() > 0  && this.getHp() > 0) {
-            this.startHp = this.startHp + 40 * this.getLvUp();
+            this.startHp = this.startHp + Constants.LEVEL_UP_ROGUE * this.getLvUp();
             this.setHp(this.startHp);
             this.setLv(this.getLv() + this.getLvUp());
             this.getAbilities().dmgUp(this.getLvUp());
         }
     }
 
-    public final int getBattles() {
+    public int getBattles() {
         return battles;
     }
 
-    public final void incrementBattles() {
+    public void incrementBattles() {
         battles++;
     }
 

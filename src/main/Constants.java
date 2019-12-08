@@ -23,11 +23,43 @@ public final class Constants {
     public static final float K_MOD6 = 1.2f;
     public static final float K_MOD7 = 1.05f;
     public static final float K_MOD8 = 0.8f;
-    public static final int LV_DMG1 = 30;
-    public static final int LV_DMG2 = 40;
-    public static final float LAND_MOD = 1.15F;
+    public static final int LV_DMG1_K = 30;
+    public static final int LV_DMG2_K = 40;
+    public static final float LAND_MOD_K = 1.15f;
     public static final int START_HP_PYRO = 500;
     public static final int LEVEL_UP_PYRO = 50;
+    public static final int PYRO_DMG1 = 350;
+    public static final int PYRO_DMG2 = 150;
+    public static final int PYRO_DMG3 = 50;
+    public static final float P_MOD1 = 0.9f;
+    public static final float P_MOD2 = 1.2f;
+    public static final float P_MOD3 = 1.05f;
+    public static final float P_MOD4 = 0.8f;
+    public static final float P_MOD5 = 0.9f;
+    public static final float P_MOD6 = 1.2f;
+    public static final float P_MOD7 = 1.05f;
+    public static final float P_MOD8 = 0.8f;
+    public static final int LV_DMG1_P = 50;
+    public static final int LV_DMG2_P = 20;
+    public static final int LV_DMG3_P = 30;
+    public static final float LAND_MOD_P = 1.25f;
+    public static final int START_HP_ROGUE = 600;
+    public static final int LEVEL_UP_ROGUE = 40;
+    public static final int ROGUE_DMG1 = 350;
+    public static final int ROGUE_DMG2 = 150;
+    public static final float R_MOD1 = 0.9f;
+    public static final float R_MOD2 = 1.2f;
+    public static final float R_MOD3 = 1.05f;
+    public static final float R_MOD4 = 0.8f;
+    public static final float R_MOD5 = 0.9f;
+    public static final float R_MOD6 = 1.2f;
+    public static final float R_MOD7 = 1.05f;
+    public static final float R_MOD8 = 0.8f;
+    public static final int LV_DMG1_R = 50;
+    public static final int LV_DMG2_R = 20;
+    public static final float LAND_MOD_R = 1.25f;
+
+
 
 
 

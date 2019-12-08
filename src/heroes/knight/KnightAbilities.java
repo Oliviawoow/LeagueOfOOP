@@ -49,14 +49,14 @@ public class KnightAbilities extends PlayerAbilities {
     }
 
     public final void dmgUp(final int nrLv) {
-        this.dmg1 = this.dmg1 + Constants.LV_DMG1 * nrLv;
-        this.dmg2 = this.dmg2 + Constants.LV_DMG2 * nrLv;
+        this.dmg1 = this.dmg1 + Constants.LV_DMG1_K * nrLv;
+        this.dmg2 = this.dmg2 + Constants.LV_DMG2_K * nrLv;
     }
 
     public final float terrainModifier(final Map map, final int nPosition, final int mPosition) {
         char type = map.getType(nPosition, mPosition);
         if (type == 'L') {
-            return Constants.LAND_MOD;
+            return Constants.LAND_MOD_K;
         }
         return 1f;
     }
